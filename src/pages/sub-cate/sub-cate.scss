@@ -1,0 +1,68 @@
+page-sub-cate {
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.bar-button-default{ color: #ffffff;}
+ion-header ion-navbar .item{ background-color: transparent; padding-left: 0;}
+.item.item-block .item-inner{ border-bottom: 0; }
+
+ion-header ion-navbar .item input{ color: #ffffff; font-family: 'Open Sans', sans-serif; font-weight: 500; font-size: 1.5rem; }
+ion-header ion-navbar .item ion-label{ color: #ffffff !important; margin-top: 0; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.4rem; }
+
+.item.item-input.item-input-has-focus .item-inner, .item.item-input.input-has-focus .item-inner{ border-bottom: 0; box-shadow: none; }
+
+.item-label-floating .text-input{ margin-top: 0;}
+.category-icon{ width: 17px; height: 17px; margin-right: 3px;}
+.category-text{ font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.3rem;}
+
+.toolbar .searchbar{background: #ffffff; padding: 0; min-height: auto; border-radius: 3px; }
+.searchbar .searchbar-input{ line-height: inherit;  text-overflow: normal; white-space: normal; word-wrap: break-all; padding-right: 0; font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.3rem;}
+.searchbar .searchbar-search-icon{ top: 7px;}
+
+.cashback-area{ width: auto; background-color: #0032a0; padding: 10px; }
+.cashback-area h1{ color: #ffffff; font-weight: 600; font-family: 'Open Sans', sans-serif;}
+.cashback-area p{ color: #ffffff; font-weight: 300; font-family: 'Open Sans', sans-serif; text-align: center; font-size: 1.3rem;}
+
+.order-now{ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); background: #ffffff; font-weight: 400; color: #0032a0; font-family: 'Open Sans', sans-serif; width: 40%; font-size: 1.3rem; font-weight: 500;  position: absolute; z-index: 100; bottom: 0; top:84px; border-radius: 3px; line-height: 2.5rem; margin: 0 auto; left: 0; right: 0; height: 24px; text-align: center;  }
+.item-pic-area{ width: auto;}
+// ion-card-content{display: flex;  justify-content: center; align-items: center; flex-wrap: wrap;}
+ion-content{position: relative;}
+
+ion-slides{ position: relative;}
+.overlay{background: rgba(0, 0, 0, 0.5) none repeat scroll 0 0; position: absolute; z-index: 100; top: 0; left: 0; right: 0; width: 100%; height: 100%; }
+ion-slides .slide-text{ position: absolute; z-index: 100; top: 25px; left: 0; right: 0; width: 76%; margin: 0 auto; text-align: center; }
+ion-slides .slide-text h2{font-weight: 600; color: #ffffff; font-family: 'Open Sans', sans-serif;}
+ion-slides .slide-text p{color: #ffffff; font-family: 'Open Sans', sans-serif; text-align: center; margin-top: 0;}
+
+
+.bnr-car{width: 40px; height: auto;}
+
+.swiper-pagination-bullet-active{ background: #0032a0;}
+
+ion-card-content ion-item h3{ text-overflow: normal; white-space: normal; word-wrap: break-all; font-family: 'Open Sans', sans-serif; font-weight: 600 !important; color: #1e1e1e !important;}
+ion-card-content ion-item p{text-overflow: normal; white-space: normal; word-wrap: break-all; font-family: 'Open Sans', sans-serif; font-weight: 400 !important; color: #454545 !important; font-size: 1.2rem !important;}
+.item [item-end]{ margin-right: 0 !important; color: #6b6b6b;} 
+.item [item-end] .button-inner .icon{  font-size: 2.6rem; }
+
+.shop-cate{ font-weight: 700; font-size: 1.5rem; color: #1e1e1e; text-align: center; font-family: 'Open Sans', sans-serif; }
+
+ion-list{display: flex; flex-wrap: wrap;}
+ion-list .category{width: 33%; padding: 14px; margin: 0 auto 1px; text-align: center; line-height: 75px; font-size: 30px; border-bottom: 1px solid #dbdbdb; border-right: 1px solid #dbdbdb;}
+ion-list .category h3{ font-size: 1.2rem; font-weight: 500; margin-top: 1.2rem;}
+ion-list .category:nth-child(3) { border-right: 0; }
+ion-list .category:nth-child(6) { border-right: 0; }
+ion-item ion-thumbnail[item-start]{ margin: 20px 16px 0 0 !important;}
+ion-item ion-thumbnail img{ width: 56px; height: 33px !important;}
+
+
+.free-deli{ font-weight: 600 !important; color: #1e1e1e; font-size: 2.2rem; font-family: 'Open Sans', sans-serif;}
+.on-order{ color: #1e1e1e; font-family: 'Open Sans', sans-serif; font-weight: 400 !important; }
+
+.pt-0{ padding-top: 0;}
+.pb-0{ padding-bottom: 0;}
+.pl-0{padding-left: 0;}
+.pr-0{padding-right: 0;}
+.mt-0{ margin-top: 0;}
+.mb-0{ margin-bottom: 0;}
+
+}

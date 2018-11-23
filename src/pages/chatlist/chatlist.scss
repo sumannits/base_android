@@ -1,0 +1,19 @@
+page-chatlist {
+    // @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+    .toolbar-title{ font-weight: 400; font-size: 1.5rem;}
+    /*ion-icon{ color: #ffffff !important;  }*/
+    .header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+    
+    .item{padding-left: 0;}
+    .item.item-block .item-inner{ padding-right: 0;}
+    .item [item-end]{ margin: 0; font-size: 1.8rem; color: #0032a0; text-align: center;}
+    .item [item-end] ion-icon{ margin-top: 1rem;}
+ 
+    .item .item-inner .input-wrapper .label{ margin-right: 0;}
+    .item h2 { font-weight: 600; margin-bottom: 0; }
+    .item p{ color: #313131; margin-bottom: 0; font-weight: 400;}
+    .date{ font-size: 1.18rem !important; color: #8e9093 !important; padding-top: 1rem;}
+
+    .chat-ciecle{ background: #2797e6;  width: 23px; height: 23px; border-radius: 50%; font-size: 1.2rem; text-align: center; color: #ffffff; display: flex; align-items: center; justify-content: center;}
+}

@@ -1,0 +1,122 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start  menuToggle>
+        <button ion-button icon-only>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>{{catDet?.name}}</ion-title>
+      <ion-buttons end>
+        <!--<button ion-button icon-only (click)="goToSearch()">
+          <ion-icon name="search"></ion-icon>
+        </button>-->
+        <button ion-button icon-only (click)="goToCart()" *ngIf="myCartCnt > 0">
+          <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+        </button>
+        <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  <ion-content>
+    <ion-list class="pro-area">
+        <ion-item text-center *ngFor="let prddata of allPrdList; let key = index">
+            <img class="img-pic" [src]="prddata.image_url" alt="" (click)="goToPrdDetails(prddata.id)">
+            <div class="cart-item"  *ngIf="prddata.my_cart_qty > 0">{{prddata.my_cart_qty}}</div>
+          <!-- <img src="assets/img/all-fruit.png" alt=""> -->
+          <h2 (click)="goToPrdDetails(prddata.id)">{{prddata.name | limitTo:30}}</h2>
+          <p (click)="goToPrdDetails(prddata.id)" text-center>MXN {{prddata.min_price}}/{{prddata.prd_unit}} {{prddata.unit_type}}</p>
+          <!-- <button ion-button (click)="addToCart(prddata.id)">Add<ion-icon name="add"></ion-icon></button> -->
+          <ion-row>
+            <ion-col col-6 class="pr-0">
+              <div class="qty">
+                <span class="qty-span" (click)="decreseQtyCart(prddata,key)">
+                  <ion-icon name="remove"></ion-icon>
+                </span>
+                <span *ngIf="prddata.prd_qty_add">{{prddata.prd_qty_add}}</span> 
+                <span *ngIf="!prddata.prd_qty_add">1</span>  
+                <span class="qty-span" (click)="increseQtyCart(prddata,key)">
+                  <ion-icon name="add-circle"></ion-icon>
+                </span>
+              </div>
+            </ion-col>
+            <ion-col col-6 class="pl-0">
+              <!-- <button ion-button (click)="addToCart(subcatData.cat_id,subcatData.id)">Add </button> -->
+              <button ion-button (click)="addToCart(prddata.id)">Add
+                <!-- <ion-icon name="add"></ion-icon> -->
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+        
+
+        <!-- <ion-item text-center>
+          <img src="assets/img/all-fruit.png" alt="">
+          <h2>All Fruit</h2>
+          <p text-center>$101.25/unit</p>
+          <button ion-button>Add
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item> -->
+
+        <!-- <ion-item text-center>
+          <img src="assets/img/all-fruit.png" alt="">
+          <h2>All Fruit</h2>
+          <p text-center>$101.25/unit</p>
+          <button ion-button>Add
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item> -->
+
+        <!-- <ion-item text-center>
+          <img src="assets/img/all-fruit.png" alt="">
+          <h2>All Fruit</h2>
+          <p text-center>$101.25/unit</p>
+          <button ion-button>Add
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item> -->
+
+        <!-- <ion-item text-center>
+          <img src="assets/img/all-fruit.png" alt="">
+          <h2>All Fruit</h2>
+          <p text-center>$101.25/unit</p>
+          <button ion-button>Add
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item> -->
+
+        <!-- <ion-item text-center>
+          <img src="assets/img/all-fruit.png" alt="">
+          <h2>All Fruit</h2>
+          <p text-center>$101.25/unit</p>
+          <button ion-button>Add
+            <ion-icon name="add"></ion-icon>
+          </button>
+        </ion-item> -->
+
+    </ion-list>
+
+
+
+    <!-- <ion-card *ngFor="let prddata of allPrdList">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img [src]="prddata.image_url" alt="" (click)="goToPrdDetails(prddata.id)">
+        </ion-thumbnail>
+        <h2 (click)="goToPrdDetails(prddata.id)">{{prddata.name | limitTo:30}}</h2>
+        <p>{{prddata.description | limitTo:20}}</p>
+        <h4>${{prddata.min_price}}/{{prddata.unit_type}}
+        </h4>
+         <button ion-button  item-end (click)="addToCart(prddata.id)">Add <ion-icon name="add"></ion-icon> </button> 
+      </ion-item>
+    </ion-card> -->
+    <ion-card *ngIf="allPrdList?.length == 0">
+      <ion-item>
+        
+        <h2>No product found for this category.</h2>
+      </ion-item>
+    </ion-card>
+  </ion-content>
+  

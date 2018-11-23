@@ -1,0 +1,85 @@
+<!--
+  Generated template for the ChatDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start menuToggle>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Chat Detail</ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list class="chat-detail">
+    <ion-item>
+      <div *ngFor="let chat of chatlist">
+        <div class="chating-area" *ngIf="chat.cssClass == 'chating-area'" >
+          <ion-grid style="padding:0 0 5px !important;">
+            <ion-row>
+              <ion-col col-2 class="no-right-padding no-left-padding">
+                <div class="chating-area-left">
+                  <img alt="" [src]="toUserDet?.image_url">
+                </div>
+              </ion-col>
+              <ion-col col-10 class="no-left-padding no-right-padding">
+                <div class="chating-area-right">
+                  <p> {{chat.message.text}}</p>
+                </div>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+        <div class="chating-area-b" *ngIf="chat.cssClass == 'chating-area-b'">
+          <ion-grid style="padding:0 0 5px !important;">
+            <ion-row>
+              <ion-col col-9 class="no-left-padding no-right-padding">
+                <div class="chating-area-b-right-b">
+                  <p> {{chat.message.text}} </p>
+                </div>
+              </ion-col>
+              <ion-col col-3 class="no-left-padding no-right-padding">
+                <div class="chating-area-left">
+                  <img alt="" [src]="loginUserDet?.image_url">
+                </div>
+              </ion-col>
+            </ion-row>
+    
+          </ion-grid>
+        </div>
+      </div>
+      
+    </ion-item>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  <div class="chat-send">
+    <!--<button>
+      <ion-icon name="md-mic"></ion-icon>
+    </button>-->
+    <div class="chat-input-area">
+      <!--<div class="file-upload">
+        <label for="upload" class="file-upload__label">
+          <ion-icon name="md-attach"></ion-icon>
+        </label>
+        <input id="upload" class="file-upload__input" type="file" name="file-upload">
+      </div>-->
+      <input type="text" [(ngModel)]="message">
+    </div>
+
+    <button class="button button-primary" [disabled]="message==''" (click)="sendMessage(message)">
+      <ion-icon name="ios-send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

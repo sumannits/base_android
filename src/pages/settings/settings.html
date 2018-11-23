@@ -1,0 +1,46 @@
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Change Password</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+    <ion-card>
+      <form [formGroup]="form" #editPrfForm="ngForm">
+        <ion-item>
+          <ion-label stacked>Password</ion-label>
+          <ion-input type="password" formControlName="pass" placeholder="Password" ></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('pass').hasError('required')">
+                Password required.
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label stacked>Confirm Password</ion-label>
+          <ion-input type="password" formControlName="cpass" placeholder="Confirm Password"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('cpass').hasError('required')">
+                Confirm Password required.
+            </div>
+            <div class="error-message" *ngIf="!pwsCheck">
+             Password and Confirm Password does not match.
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <button ion-button block [disabled]="!editPrfForm.valid" (click)="updatePassword(form.value)">Submit</button>
+        </ion-item>
+      </form>
+    </ion-card>
+  
+  </ion-content>
+  

@@ -1,0 +1,83 @@
+<ion-menu [content]="content" (ionOpen)="menuOpened()">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content class="left-menu">
+        <ion-list *ngIf="isloggedin === false">
+            <button menuClose ion-item *ngFor="let p of withoutLoginPages" (click)="openPage(p)">
+                <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                {{p.title}}
+            </button>
+        </ion-list>
+        <ion-list *ngIf="isloggedin === true && istype==1">
+            <button menuClose ion-item *ngFor="let p of withLoginPages" (click)="openPage(p)">
+                <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                {{p.title}}
+                <span class="chat-cnt" *ngIf="p.index == 9 && chatCntlist?.length > 0" >{{chatCntlist?.length}}</span>
+            </button>
+        </ion-list>
+        <ion-list *ngIf="isloggedin === true && istype==0">
+                <button menuClose ion-item *ngFor="let p of withLoginPagestype" (click)="openPage(p)">
+                    <ion-icon item-start [name]="p.icon" [color]="isActive(p)"></ion-icon>
+                    {{p.title}}
+                    <span class="chat-cnt" *ngIf="p.index == 9 && chatCntlist?.length > 0" >{{chatCntlist?.length}}</span>
+                </button>
+            </ion-list>
+    </ion-content>
+</ion-menu>
+<ion-nav #content [root]="rootPage"></ion-nav>
+
+<!--<ion-menu [content]="content" id="menuside" (ionOpen)="menuOpened()" >
+    <ion-header class="sidebar-header">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="{{profile_image}}">
+        </ion-thumbnail>
+        <h2> {{user_fname}} </h2>
+      </ion-item>
+    </ion-header>
+    
+<ion-content class="side-bar">
+    <ion-list> 
+        <button ion-item menuClose (click)="goToDestinationFromSidebar('1')" icon-start>
+            <ion-icon ios="ios-home" md="md-home" item-start></ion-icon>
+            Home
+        </button>
+    </ion-list>
+    <ion-list *ngIf="isloggedin"> 
+        <button ion-item menuClose icon-start>
+            <ion-icon ios="ios-settings" md="md-settings" item-start></ion-icon>
+            Account-Settings
+        </button>
+    </ion-list>
+    <ion-list *ngIf="isloggedin"> 
+        <button ion-item menuClose icon-start (click)="goToDestinationFromSidebar('7')">
+            <ion-icon ios="ios-briefcase" md="md-briefcase" item-start></ion-icon>
+            Edit Profile
+        </button>
+    </ion-list>
+   
+   
+    <ion-list>
+        <button *ngIf="isloggedin" ion-item menuClose (click)="logout()" icon-start>
+            <ion-icon name="md-log-out" item-start></ion-icon>
+            Logout
+        </button>
+        <button *ngIf="!isloggedin" ion-item menuClose (click)="login()" icon-start>
+            <ion-icon name="md-log-in" item-start></ion-icon>
+            Login
+        </button>
+    </ion-list>
+    <ion-list>
+        <button *ngIf="!isloggedin" ion-item menuClose (click)="goToDestinationFromSidebar('16')" icon-start>
+            <ion-icon name="md-add-circle" item-start></ion-icon>
+            SignUp
+        </button>
+    </ion-list>
+</ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>-->

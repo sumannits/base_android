@@ -1,0 +1,168 @@
+<!-- <ion-header>
+
+  <ion-navbar>
+    <ion-title>home</ion-title>
+  </ion-navbar>
+
+</ion-header> -->
+
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>    
+      <ion-title style="padding: 0 10px 1px 8px;" >BASE <span class="time-slot">11am to 5pm</span>
+        <p class="sub-head-text text-center">Anything on the steps of your door</p>
+      </ion-title>
+      <!-- <ion-title>BASE <span class="time-slot">11am to 5pm</span>
+        <p class="sub-head-text text-center">Anything on the steps of your door</p>
+      </ion-title> -->
+      
+      
+    <!-- <ion-segment [(ngModel)]="segment" (ionChange)="updateSchedule()">
+      <ion-segment-button value="all">
+        All
+      </ion-segment-button>
+      <ion-segment-button value="favorites">
+        Favorites
+      </ion-segment-button>
+    </ion-segment> -->
+
+    <!--<ion-item>
+      <ion-label floating>Delivery Location</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>-->
+
+
+    <ion-buttons end (click)="goToCart()">
+      <button ion-button icon-only  *ngIf="myCartCnt > 0">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+      <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-row>
+      <ion-col col-5 class="pb-0">
+        <ion-buttons>
+          <button ion-button icon-only (click)="openCategories()" class="category-text">
+            <!-- <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon> -->
+            <img class="category-icon" src="assets/img/category-icon.png"> Categories
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-7 class="pl-0 pb-0" (click)="goToSearch()">
+        <ion-searchbar color="primary" placeholder="Search for product">
+        </ion-searchbar>
+      <!-- <p class="sub-head-text text-center">Anything on the steps of your door</p> -->
+      </ion-col>
+    </ion-row>
+    
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div class="order-now" (click)="addCustomOrder()">Add Custom Order </div>
+  <ion-list>
+    <ion-item class="cashback-area">
+      <!-- <h1 text-center>$100 Cashback</h1> -->
+      <h1  text-center>Your Groceries Delivered.</h1>
+      <p>Los Cabos Mx premium stores at your doorstep.</p>
+    </ion-item>
+
+
+
+    <ion-slides pager>
+
+      <ion-slide>
+        <img src="assets/img/home-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 text-uppercase class="mb-0">{{appHomeText}}
+            <img class="bnr-car" src="assets/img/bnr-car.png" alt=""> </h2>
+          <h2 text-uppercase class="mt-0">{{appHomeText1}}</h2>  
+        </div>
+        <p>{{appHomeDesc}}</p>
+        <!--<p>Los Cabos Mx premium stores at your doorstep.</p>-->
+      </ion-slide>
+
+      <ion-slide>
+        <img src="assets/img/home-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 class="mb-0">{{appHomeText}}
+            <img class="bnr-car" src="assets/img/bnr-car.png" alt=""> </h2>
+          <h2 class="mt-0">{{appHomeText1}}</h2>
+        </div>
+        <p>{{appHomeDesc}}</p>
+
+      </ion-slide>
+
+      <!--<ion-slide>
+        <img src="assets/img/home-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 class="mb-0">FREE
+            <img class="bnr-car" src="assets/img/bnr-car.png" alt=""> </h2>
+          <h2 class="mt-0">DELIVERY!</h2>
+        </div>
+        <p>On orders above $200</p>
+
+      </ion-slide>-->
+
+    </ion-slides>
+    <!--<div style="width:auto; margin:10px 16px 0;">
+      <button ion-button style="height:3.2rem; padding: 0 0.5em; background:#ffffff; border: 1px solid #0032a0; color:#0032a0; border-radius:3px; width:100%;  "
+        text-uppercase>add custome product</button>
+    </div>-->
+    
+    <h5 class="shop-cate">Shop By Category</h5>
+    <!--<ion-card *ngFor="let catData of allCatList">
+      <ion-card-content class="pt-0 pb-0 pr-0 pl-0">
+        <button ion-button block clear (click)="goToDetails(catData.id)" class="pl-0 pr-0" >
+        <ion-item class="pl-0">
+          <ion-avatar item-start>
+            <img [src]="catData.image_url" alt="">
+          </ion-avatar>
+          <h3>{{catData.name}}</h3>
+          <p>{{catData.description | limitTo:70}}</p>
+          <div item-end >
+            <ion-icon name="arrow-forward"></ion-icon>
+          </div>
+        </ion-item>
+        </button>
+      </ion-card-content>
+    </ion-card>-->
+    <div  *ngFor="let catData of allCatList; let key = index"  >
+        <ion-item *ngIf="catData.product_list.length>0" (click)="goToCatWisePrd(catData.id)"><h4  class="baby-txt">{{catData.name}} </h4> 
+        <img *ngIf="catData.product_list.length>0" item-end src="{{catData.image_url}}" alt=""> </ion-item>
+      <ion-item scrollx="true" class="top-cate-area" *ngIf="catData.product_list.length>0" >
+        <div class="top-cate" text-center *ngFor="let subcatData of catData.product_list; let pkey = index">
+            <div class="cart-item" *ngIf="subcatData.my_cart_qty > 0">{{subcatData.my_cart_qty}}</div>
+          <img src="{{subcatData.image_url}}" alt="" (click)="goToPrdDetails(subcatData.id)" >
+          <h2 (click)="goToPrdDetails(subcatData.id)">{{subcatData.name}}</h2>
+          <p (click)="goToPrdDetails(subcatData.id)" text-center>MXN {{subcatData.min_price}}/{{subcatData.prd_unit}} {{subcatData.unit_type}}</p>
+          <!-- <div class="cart-item" (click)="getMyProductCount(subcatData.id)">{{myProductCnt}}</div> -->
+          <ion-row>
+            <ion-col class="pr-0">
+              <div class="qty">
+                <span class="qty-span" (click)="decreseQtyCart(subcatData,key,pkey)">
+                  <ion-icon name="remove"></ion-icon>
+                </span>
+                <span *ngIf="subcatData.prd_qty_add">{{subcatData.prd_qty_add}}</span> 
+                <span *ngIf="!subcatData.prd_qty_add">1</span>               
+                <span class="qty-span" (click)="increseQtyCart(subcatData,key,pkey)">
+                  <ion-icon name="add-circle"></ion-icon>
+                </span>
+              </div>
+            </ion-col>
+            <ion-col class="pl-0">
+              <button ion-button (click)="addToCart(subcatData.cat_id,subcatData.id)">Add </button>
+            </ion-col>
+          </ion-row>          
+        </div>
+      </ion-item>
+    </div>
+
+  </ion-list>
+
+</ion-content>

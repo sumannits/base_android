@@ -1,0 +1,82 @@
+page-my-order-detail {
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800'); 
+
+.toolbar-title{ font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+
+.content{background-color: #f7f7f7 !important;}
+
+
+.label{ margin-bottom: 0;}
+.item-inner{ padding-right: 0 !important; }
+// .item{ padding-left: 0;  }
+//
+ .item-block{ min-height: auto;}
+ .item p ion-icon{ color: #e69c27 !important; margin-right: 7px; font-size: 2.3rem; }
+
+// .row{ border-bottom: 1px solid #f0f0f0;}
+.row-lt{ width: auto;}
+.row-rt{ width: auto;}
+.green-round{ width: 12px; height: 12px; margin-right: 5px;}
+.row-lt h3{ font-weight: 400; margin-bottom: 0.5rem; }
+.row-lt h2{ font-weight: 500; }
+.row-lt p{ display: flex; align-items: center; font-size: 1.25rem !important; color: #666666;  }
+.rt-pic{ width: 64px;}
+.item ion-thumbnail img{ width: 82px; height: auto; height: 70px;}
+.item [item-start]{  margin-left: 16px; margin-top: 0; margin-bottom: 0; }
+.item [item-end]{ margin-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; color: #000000; font-size: 1.3rem !important; font-weight: 500; }
+.item { border-bottom: 1px solid #f0f0f0; padding-left: 0; }
+.item:last-child{border-bottom: 0;}
+.need-help{ color: #000000;font-weight: 600; padding-top: 12px; }
+.text-input{ margin-top: 0; margin-bottom: 0; background-color:  #f0f0f0 !important;  width: 95%; min-height: 2.5rem; text-align: center; padding: 0 6px; }
+.row-lt h1{ font-weight: 600 !important; font-size: 2rem !important; display: flex; align-items: center; }
+.row-lt h1 .offer{ color: #16be48; font-size: 1.2rem; font-weight: 400; margin-left: 6px; }
+
+.p-text{display: flex; align-items: center; font-size: 1.5rem !important; line-height:inherit; color: #222222; font-weight: 400; margin-bottom: 17px;}
+.green-round-b{ width: 12px; height: 11px; margin-right: 5px;}
+.green-line{ width: 2px; height: 30px;; margin: 0 auto; background-color: #16be48;}
+.gray-text{ color: #878787; }
+
+.ship-det{ color: #666666; font-weight: 500; font-size: 1.4rem; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+.label{margin: 0;}
+
+.name{ font-weight: 500; color: #222222; text-transform: uppercase; font-size: 1.4rem; margin-top: 1rem; }
+.text{color: #222222;}
+
+.price-area{ width: auto; display: flex; align-items: center; justify-content: space-between; margin: 1rem 0 0;  }
+.total-price { color: #000000; font-weight: 600; padding-top: 1rem; }
+
+.chat-icon{ color: #0032a0 !important; font-size: 2rem; float:right;}
+.creat-icon{ color: #0032a0 !important; font-size: 2rem;}
+.status-icon{ color: #20242d !important; font-size: 2.2rem !important; margin-bottom: 1rem; margin-right: 1rem;}
+
+.pl-0{padding-left: 0;}
+.button{
+    height: 2.6rem;
+    font-size: 1.5rem;
+}
+.button ion-icon{ margin-right: 0.5rem;}
+.button.right-btn{   
+    font-size: 13px;  
+}
+p.align-right-p{
+width: 100%;
+display: flex;
+justify-content: space-between;
+}
+.sp_note span{ font-weight: bold;font-size: 14px;}
+
+.card-part{ width: auto; }
+ .card-part .item .item-inner{ padding: 10px 5px !important; }
+.top-brdr { border-top: 1px solid #e1e1e1 !important;}
+.d-flex{font-weight: 600 !important;}
+.card .item.item-block .item-inner{ align-items: flex-start;}
+.top-area{width: auto; display: flex; align-items: center; justify-content: space-between;  padding-left: 5px; padding-bottom: 5px;}
+.status{font-weight: normal; color: #04d30e; }
+}

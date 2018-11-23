@@ -1,0 +1,23 @@
+page-cate-search {
+//  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+    .toolbar-title{ font-weight: 400; font-size: 1.5rem;  text-overflow: normal; white-space: normal; word-wrap: break-all;}
+    ion-icon{ color: #ffffff !important;  }
+    .header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+    ion-card{ padding-bottom: 0 !important; padding-top: 0 !important;}
+    .card ion-list{ border-bottom: 1px solid #d1d1d1; margin-bottom: 1px;}
+    .item ion-avatar img{ width: 90px !important; height: auto !important; border-radius: 0 !important;}
+    .item{ padding-left: 0; border-bottom:0;}
+    .item.item-block .item-inner{ padding-right: 0;}
+    .item [item-end]{ color: #4a4a4a !important; font-size: 2.4rem; margin-right: 0;}
+    ion-fab[top][edge]{ top:-10px;}
+    .fab { background: none;}
+    .fab ion-icon{color: #4a4a4a !important;}
+
+    .bakery-img{ width: 30px !important; height: 30px !important;}
+
+    .list > .item-block:first-child{ border-top: 0 !important;}
+    .list > .item-block:last-child{ border-bottom: 0 !important;}
+    .cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+}

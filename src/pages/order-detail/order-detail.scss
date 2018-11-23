@@ -1,0 +1,41 @@
+page-order-detail {
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.toolbar-title{ font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+.content{background: #f7f7f7;}
+.item{ padding-left: 8px; }
+.item h3{ font-weight: 500; color: #000000; }
+.input-wrapper{ border-bottom: 0;}
+.label{ margin: 0;}
+p{ text-overflow: normal; white-space: normal; word-wrap: break-all;}
+
+.card h2{ font-weight: 500; margin-left: 0; color: #0032a0; font-size: 1.5rem; margin-top: 16px; margin-bottom: 8px;}
+.card h3{ font-weight: 500; text-align: left; margin-bottom: 0;}
+.card p{text-align: left; margin-bottom: 5px;}
+.sub-total{ display: flex; align-items: center; justify-content: space-between; padding: 8px 16px; border-bottom: 1px solid #e1e1e1;}
+.sub-total-text{ color: #646464; font-size: 1.4rem !important; font-weight: 500;}
+.price{ font-weight: 600; font-size: 1.6rem;}
+.add-note{ width: 20px; margin: 0 auto; }
+.item [item-end]{ margin: 0; }
+.chat-icon{ color: #0032a0 !important; font-size: 2.2rem;}
+.button-md.right-btn{ font-size: 13px; }
+
+.order-det{ width: auto;}
+.order-det .item-inner .input-wrapper{ width: auto; border-bottom: 0;}
+.order-det .item-inner .input-wrapper .label h2{ margin-top: 8px; font-weight: 600;}
+
+.card-part{ width: auto; }
+.card-part .item .item-inner{ padding: 10px 5px; }
+.d-flex{font-weight: 600 !important;}
+.top-brdr { border-top:1px solid #e1e1e1;}
+
+.card .item.item-block .item-inner{ align-items: flex-start;}
+.sp_note span{ font-weight: bold;font-size: 14px;}
+
+}

@@ -1,0 +1,50 @@
+page-signup {
+    // @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+    
+      .logo { padding: 60px 0 5px; min-height: 100px;  text-align: center;
+    
+        img {  max-width: 100px; }
+        p{ margin-top: 0.5rem;}
+      }
+    
+      .list { margin-bottom: 0; }
+    
+    .scroll-content { background: #ffffff url(../assets/img/splash-bg.png) no-repeat center top !important; width: auto !important; margin: 0 auto;}
+    .item{background: none !important; border: 1px solid #d2d2d2; border-radius: 20px; margin-bottom: 5px; }
+    
+    // .list > .item-block:first-child{ border-top: 0; }
+    
+    .list .item-block .item-inner{ border-bottom: 0;}
+    .label{ margin: 8px 8px 8px 0;}
+    .label + ion-input .text-input{ margin-left: 0 !important;}
+    .text-input{ margin: 0 8px 0 0;}
+    .item-block{ min-height: 3rem; border: 1px solid #d2d2d2; }
+    ion-input{ font-size: 1.4rem; color: #434343;}
+    .brdr-none{ border: 0;}
+    .item-inner{ border-bottom: 0 !important;}
+    .item .label ion-icon{ color: #787878; }
+    
+    .item.item-input.item-input-has-focus .item-inner, .item.item-input.input-has-focus .item-inner{ border-bottom: 0; box-shadow: none; }
+    .item .checkbox{ margin-right: 8px !important;}
+    .checkbox .checkbox-icon{ border: 1px solid #d2d2d2 !important;}
+    .checkbox .checkbox-checked{background-color: #325fbe !important; border: 1px solid #325fbe !important;}
+    
+    .button-default{ background-color: #325fbe !important; width: 94%; margin: 0 auto; text-transform: uppercase; height: 3.8rem;}
+    .or{ color: #020202; font-weight: 400; }
+    .remember-me{ font-size: 1.4rem; color: #000000; font-weight: 400;}
+    
+    .social-icon{ width: auto; height: 27px; margin: 0; padding: 0;}
+    
+    .button-default.dark{ background-color: #000000 !important; text-transform: uppercase;}
+    
+    .item .item-inner .input-wrapper .label{ min-height: 2.6rem; display: flex; align-items: center; }
+
+    .error-message{ color: rgb(180, 43, 66); padding-left: 16px; padding-bottom: 5px;}
+
+
+    p{ font-weight: 400;}
+    
+    .mt-0{ margin-top: 0 !important;}
+    
+    .pt-0{ padding-top: 0;}
+}

@@ -1,0 +1,40 @@
+page-rating-list {
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.toolbar-title{font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+
+.card-content p ion-icon{color: #e69c27 !important; font-size: 2.7rem;}
+.list > .item-block:first-child{ border-top: 0; }
+
+.item{ padding-left: 0; border-bottom: 1px solid #d1d1d1;}
+.item h2{ color: #1e1e1e; font-weight: 500; font-family: 'Open Sans', sans-serif; font-size: 1.7rem; margin-bottom: 0;  }
+.item p{ text-overflow: normal; white-space: normal; word-wrap: break-all; color: #454545 !important; font-size: 1.5rem !important; font-weight: 400; font-family: 'Open Sans', sans-serif; }
+.item p .date{ color: #d7d7d7 !important; font-weight: 400; font-size: 1.3rem !important; margin-bottom: 16px;  font-family: 'Open Sans', sans-serif;}
+.item ion-avatar[item-start] ion-icon{ color: #e69c27 !important; font-size: 1.4rem;}
+.item ion-avatar img{ width: 70px; height: 70px; }
+.label{margin-right: 0;}
+.item.item-block .item-inner{ padding-right: 0 !important; border-bottom: 0; }
+ion-footer{background-color: #eeeeee;}
+ion-footer .toolbar .toolbar-background{ background-color: transparent !important;}
+textarea.text-input{ background-color: #ffffff; padding: 5px; margin: 7px; border: 1px solid #d9d9d9; border-radius: 5px; }
+ul {
+    padding: 0px;
+   
+    &.rating li {
+      padding: 5px 10px !important;
+      background: none;
+      color: #ffb400;
+   
+      ion-icon {
+        font-size: 30px;
+      }
+    }
+  }
+}

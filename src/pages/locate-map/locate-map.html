@@ -1,0 +1,38 @@
+<!--
+  Generated template for the LocateMapPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Locate on Map</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+      <div class="cart-item">2</div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+    </ion-item>
+    
+      <img src="assets/img/locate-map.png" alt="" >
+    
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,255 @@
+<!--
+  Generated template for the MyOrderDetailPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start menuToggle>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>My Order Detail</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+      <div class="cart-item">2</div>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div *ngFor="let order of ordershow">
+  <ion-card >
+    <ion-card-content>     
+      <ion-row>
+        <ion-col col-9 class="row-lt">
+          <h3>Order ID: #{{order.order_id}}</h3>
+          <h3>Payment Mode: {{(order.payment_status!=2)?'CARD':'CASH'}}</h3>
+          <!--<h2> {{order.product_name}} </h2>
+          <p> Black </p>-->
+          <!-- <button class="close-btn" ion-button (click)="openModal()">
+              Track
+            </button> -->
+        </ion-col>
+        <ion-col col-3 class="row-rt">
+          <!--<div class="rt-pic">
+            <img src="./assets/img/mi-a1.png" alt="">
+          </div>-->
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col col-7 class="row-lt">
+            <h1>{{order.price}} <!--<span class="offer" > 1 Offer </span>--></h1>
+        </ion-col>
+        <!-- <ion-col col-5>
+          <ion-input placeholder="Quantity:1" type="text"></ion-input>
+        </ion-col> -->
+      </ion-row>
+  
+      
+  
+      <ion-row>
+        <ion-col col-1>
+          <img class="green-round-b" style="margin-top:5px;" src="./assets/img/green-circle.png" alt="">
+          <div class="green-line" style="margin-right: 8px;"></div>
+          <img class="green-round-b" src="./assets/img/green-circle.png" alt="">
+        </ion-col>
+        <ion-col col-11>
+          <p class="p-text align-right-p">
+            Ordered & Approved  
+            <button ion-button class="right-btn" *ngIf="order.order_status == 'U'" (click)="startjourney()">Start Journey</button>
+                                
+            <button ion-button class="right-btn"  *ngIf="order.order_status == 'P'" (click)="endjourney()">Complete Delivery</button>
+              <button ion-button class="right-btn" *ngIf="order.order_status == 'C'" (click)="getMyRatting(order.id)">View Ratting</button>                  
+          </p>
+          <div item-end> 
+            <div></div> 
+           </div>
+          
+          <p style="line-height:inherit; margin-bottom:0;" > 
+            <ion-icon style="color:#000000 !important;" name="arrow-forward"></ion-icon> 
+            <span *ngIf="order.order_status == 'U'">Processing</span> 
+            <span *ngIf="order.order_status == 'P'">Out for delivery</span>
+            <span *ngIf="order.order_status == 'D'">Delivered</span>
+            <span *ngIf="order.order_status == 'C'">Complete</span>
+            <ion-icon name="navigate" class="chat-icon item-end" *ngIf="order.order_status == 'P' && restaurantLatitude!='' && restaurantLongitude!=''" (click)="goloc(order.id)"></ion-icon></p>
+          <p>Order Date: <span class="gray-text">{{order.order_date | date:'dd MMM, yyyy'}}</span></p>
+
+         Delivery Date: <span class="gray-text">{{order.product_list[0].delivery_date | date:'dd MMM, yyyy'}} {{((order.product_list[0].delivery_date | date:'H')==15?'2pm to 5pm':'11am to 2pm')}}</span>
+        </ion-col>
+      </ion-row>     
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <h2 class="ship-det" text-uppercase >Shipping Details</h2>
+        <h3 class="name" >{{order.first_name}} {{order.last_name}}</h3>
+        <p class="text">{{order.save_as}}</p>
+        <p class="text">{{order.address}}</p>
+        <p class="text">{{order.landmark}}</p>
+        <p class="text">Phone No: {{order.phone}}</p>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="card-part" *ngFor="let orderlist of order.product_list; let key = index;">
+      <ion-item>
+        <ion-thumbnail item-start>
+            <img src="{{orderlist.image_url}}"  alt=""/>
+        </ion-thumbnail>
+        <div class="top-area">
+          <span>
+            <h3 class="d-flex">{{orderlist.product_name}}
+            
+              <!-- <button class="close-btn" ion-button>
+                        <ion-icon name="close"></ion-icon>
+                      </button> -->
+              <!-- <button class="close-btn" ion-button (click)="gotoChatDet(orderlist.id)">
+                          chat
+                        </button> -->
+            
+            </h3>
+            <span *ngIf="orderlist.is_brought == 1" class="status"> Bought Item </span>
+            <!-- <div item-end> 
+                      <div><ion-icon class="status-icon" name="build" (click)="openstatusModal()"></ion-icon></div>
+                      <div><ion-icon name="chatbubbles" class="chat-icon" (click)="gotoChatDet(orderlist.id)"></ion-icon></div> 
+                      
+                     </div> -->
+            <!-- <button class="close-btn" ion-button (click)="openstatusModal()">
+                        Status
+                      </button> -->
+            <!--<p>{{orderlist.order_date| date:'dd-MM-yyyy'}}</p>-->
+            <p class="sp_note" *ngIf="orderlist.spacial_note != null"><span>Special Note:</span> {{orderlist.spacial_note}}</p>
+          </span>
+          <span item-end>
+            <!--<ion-icon class="status-icon" name="build" (click)="openstatusModal()"></ion-icon>-->
+            <ion-icon name="chatbubbles" class="chat-icon" (click)="gotoChatDet(orderlist.id)"></ion-icon>
+          </span>
+        </div>
+        <ion-row class="top-brdr">
+            <ion-col class="p-b">
+                <h4 class="font-13">Quantity :
+                    <span text-center>{{orderlist.quantity}}</span>
+                </h4>
+                
+              </ion-col>
+        </ion-row>
+        <ion-row class="top-brdr">
+            <ion-col class="p-b">
+                <h4 class="font-13">Price:
+                    <span>MXN{{orderlist.price}}/{{orderlist.prd_unit}} {{orderlist.unit_type}}</span>
+                </h4>
+                
+              </ion-col>
+        </ion-row>
+        <ion-row class="top-brdr">
+            <ion-col class="p-b">
+                <h4 class="font-13">Description :
+                    <span text-center>{{orderlist.description}}</span>
+                </h4>
+                
+              </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-6 *ngIf="order.order_status == 'U'">
+              <button block ion-button (click)="openModal(orderlist)"> <ion-icon name="create"></ion-icon> Edit</button>
+          </ion-col>
+          <ion-col col-6 *ngIf="order.order_status == 'U' && orderlist.is_brought == 0">
+              <button (click)="isBroughtPrd(orderlist, key)" block color="dark" ion-button> <ion-icon name="cart"></ion-icon> Cart</button>
+          </ion-col>
+        </ion-row>
+        
+
+        
+        
+        <!-- <ion-item class="top-brdr">
+            <h4 class="font-13">Quantity : <span>{{orderlist.quantity}}</span> </h4>   
+            <p item-end text-center>
+                <ion-icon *ngIf="order.order_status == 'U'" class="creat-icon" name="create" (click)="openModal(orderlist)"></ion-icon>
+            </p>        
+        </ion-item> -->
+
+        <!-- <ion-item class="top-brdr">
+            <h4 class="font-13">Price: 
+              <span>MXN{{orderlist.price}}/{{orderlist.prd_unit}} {{orderlist.unit_type}}</span> </h4>
+              <p item-end text-center>
+                  
+                  <ion-icon class="creat-icon" *ngIf="order.order_status == 'U' && orderlist.is_brought == 0" ios="ios-cart-outline" name="cart" (click)="isBroughtPrd(orderlist, key)"></ion-icon>
+              </p>
+        </ion-item> -->
+        <!-- <ion-row class="top-brdr">
+          <ion-col col-5 text-center class="p-b">
+            <h4 class="font-13">Quantity</h4>
+            <p text-center>{{orderlist.quantity}}</p>
+          </ion-col>
+
+          <ion-col col-3 text-center class="p-b">
+              
+                <ion-icon *ngIf="order.order_status == 'U'" class="creat-icon" name="create" (click)="openModal(orderlist)"></ion-icon>
+                <ion-icon class="creat-icon" *ngIf="order.order_status == 'U' && orderlist.is_brought == 0" ios="ios-cart-outline" name="cart" (click)="isBroughtPrd(orderlist, key)"></ion-icon>
+            </ion-col>
+         
+        </ion-row> -->
+
+        <!-- <ion-row class="top-brdr">
+          <ion-col col-5 text-center class="p-b">
+            <h4 class="font-13">Quantity</h4>
+            <p text-center>{{orderlist.quantity}}</p>
+          </ion-col>
+          <ion-col col-4 text-center class="p-b">
+            <h4 class="font-13">Price</h4>
+            <p text-center>MXN{{orderlist.price}}/{{orderlist.prd_unit}} {{orderlist.unit_type}}</p>
+          </ion-col>
+          <ion-col col-3 text-center class="p-b">
+              
+                <ion-icon *ngIf="order.order_status == 'U'" class="creat-icon" name="create" (click)="openModal(orderlist)"></ion-icon>
+                <ion-icon class="creat-icon" *ngIf="order.order_status == 'U' && orderlist.is_brought == 0" ios="ios-cart-outline" name="cart" (click)="isBroughtPrd(orderlist, key)"></ion-icon>
+            </ion-col>
+         
+        </ion-row> -->
+        
+      </ion-item>
+    </ion-card>
+ 
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <h2 class="ship-det" text-uppercase>Price Details</h2>
+        <!--<div class="price-area">
+          <span>Last Price</span>
+          <span>$155</span>
+        </div>
+        <div class="price-area">
+          <span>Selling Price</span>
+          <span>$155</span>
+        </div>-->
+        <div class="price-area">
+          <span>Shipping Charge</span>
+          <span>MXN{{order.service_charge}}</span>
+        </div>
+        <div class="price-area" style="border-top: 1px dashed #f0f0f0;" >
+          <span class="total-price" > Total Price </span>
+          <span class="total-price">MXN{{order.total_amount}}</span>
+        </div>
+        <div class="price-area" *ngIf="order.payment_status==2" style="border-top: 1px dashed #f0f0f0;" >
+          <span class="total-price" > Due Amount </span>
+          <span class="total-price">MXN{{order.total_amount}}</span>
+        </div>
+        <div class="price-area" *ngIf="order.due_amt > 0 && order.payment_status!=2" style="border-top: 1px dashed #f0f0f0;" >
+          <span class="total-price" > Due Amount </span>
+          <span class="total-price">MXN{{order.due_amt}}</span>
+        </div>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+</div>
+</ion-content>

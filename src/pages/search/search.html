@@ -1,0 +1,77 @@
+<!--<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ 'SEARCH_TITLE' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>-->
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons start  menuToggle>
+        <button ion-button icon-only>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-title>Search</ion-title>
+      <ion-buttons end>
+        <button ion-button icon-only (click)="goToCart()">
+          <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+        </button>
+        <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div>
+      </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchItem" (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <!--<ion-searchbar [(ngModel)]="searchItem" (ngModelChange)="search($event)" (ionInput)="getItems($event)" placeholder="{{ 'SEARCH_PLACEHOLDER' | translate }}"></ion-searchbar>
+  <ion-list>
+    <button ion-item (click)="openItem(item)" *ngFor="let item of currentItems">
+      <ion-avatar item-start>
+        <img [src]="item.profilePic" />
+      </ion-avatar>
+      <h2>{{item.name}}</h2>
+      <p>{{item.about}}</p>
+      <ion-note item-end *ngIf="item.note">{{item.note}}</ion-note>
+    </button>
+  </ion-list>-->
+  <ion-card *ngFor="let prddata of allPrdList; let key = index">
+      <ion-item>
+        <ion-thumbnail item-start (click)="goToPrdDetails(prddata.id)">
+          <img [src]="prddata.image_url" alt="">
+          <div class="cart-item" *ngIf="prddata.my_cart_qty > 0" >{{prddata.my_cart_qty}}</div>
+          <!--<p *ngIf="(((prddata.max_price-prddata.min_price)*100)/prddata.max_price) >0">{{(((prddata.max_price-prddata.min_price)*100)/prddata.max_price) | number:'1.2-2'}}</p>-->
+        </ion-thumbnail>
+        <h2 (click)="goToPrdDetails(prddata.id)">{{prddata.name | limitTo:30}}</h2>
+        <p (click)="goToPrdDetails(prddata.id)">{{prddata.description | limitTo:20}}</p>
+        <!--<p>200 gm + 200 gm +200gm</p>-->
+        <!-- <span *ngIf="prddata.max_price > 0">${{prddata.max_price}}</span> -->
+        <h4>MXN {{prddata.min_price}}/{{prddata.prd_unit}} {{prddata.unit_type}}  </h4>
+        <div item-end>
+          <div class="qty">
+            <span class="qty-span" (click)="decreseQtyCart(prddata,key)">
+              <ion-icon name="remove"></ion-icon>
+            </span>
+            <span style="padding:3px 5px;" *ngIf="prddata.prd_qty_add">{{prddata.prd_qty_add}}</span> 
+            <span style="padding:3px 5px;" *ngIf="!prddata.prd_qty_add">1</span>   
+            <span class="qty-span" (click)="increseQtyCart(prddata,key)">
+              <ion-icon name="add-circle"></ion-icon>
+            </span>
+          </div>
+
+          <button ion-button item-end (click)="addToCart(prddata.id)">Add
+            <!-- <ion-icon name="add"></ion-icon> -->
+          </button>
+        </div>
+        
+         
+      </ion-item>
+  </ion-card>
+  <ion-card *ngIf="allPrdList?.length == 0 && searchItem !=''">
+      <ion-item>
+        <h2>No product found for "{{searchItem}}" keyword.</h2>
+        <button ion-button (click)="addCustomOrder()"> Add Custom Order </button>
+      </ion-item>
+  </ion-card>
+
+</ion-content>

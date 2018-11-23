@@ -1,0 +1,235 @@
+<!--
+  Generated template for the EditProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Edit Profile</ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  
+  <ion-content>
+  
+    <ion-card>
+        <div>
+            <ion-segment [(ngModel)]="pet">
+              <ion-segment-button value="puppies">
+                Edit profile
+              </ion-segment-button>
+              <ion-segment-button value="cash">
+                Shipping Details
+              </ion-segment-button>
+            </ion-segment>
+          </div>
+  
+      <div class="seg-top" [ngSwitch]="pet">
+          <ion-list *ngSwitchCase="'puppies'">
+      <form [formGroup]="form" #editPrfForm="ngForm">
+      <ion-item class="person-area">
+        <ion-avatar item-start>
+            <img [src]="userDetails?.image_url" (click)="presentActionSheet()" alt="">
+        </ion-avatar>
+        <!--<ion-avatar item-start>
+          <ion-icon name="create" class="creat-icon" (click)="goToEditAddress()"></ion-icon>
+          <img src="assets/img/edit-pic.png" alt="">
+        </ion-avatar>-->
+        <h2>{{userDetails?.first_name}} {{userDetails?.last_name}}</h2>
+        <p> <ion-icon name="map" class="icon-map"></ion-icon> {{userDetails?.city}}</p>
+      </ion-item>
+  
+        <ion-item>
+          <ion-label stacked>First Name</ion-label>
+          <ion-input type="text" formControlName="first_name" placeholder="First Name" ></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('first_name').hasError('required')">
+              First name required.
+            </div>
+            <div class="error-message" *ngIf="form.get('first_name').hasError('pattern')">
+              First name must be character only.
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label stacked>Last Name</ion-label>
+          <ion-input type="text" formControlName="last_name" placeholder="Last Name"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('last_name').hasError('required')">
+              Last name required.
+            </div>
+            <div class="error-message" *ngIf="form.get('last_name').hasError('pattern')">
+              Last name must be character only.
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-label stacked>Email Id</ion-label>
+          <ion-input type="email" formControlName="email" readonly placeholder="Email Id"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label stacked>Mobile No</ion-label>
+          <ion-input type="text" placeholder="Mobile No" formControlName="phone"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('phone').hasError('required')">
+              Mobile No required.
+            </div>
+            <div class="error-message" *ngIf="form.get('phone').hasError('pattern')">
+              Please enter a number like 12345678 and must be 10 digit.
+            </div>
+          </ng-container>
+        </div>
+        <!-- <ion-item>
+            <ion-label stacked>Zip Code</ion-label>
+            <ion-input type="text" formControlName="position" placeholder="Zip Code"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label stacked>City</ion-label>
+          <ion-input type="text" formControlName="city" placeholder="City Name"></ion-input>
+        </ion-item> -->
+        <!-- <ion-item>
+          <ion-label stacked>Address</ion-label>
+          <ion-input type="text" formControlName="address" placeholder="Enter your address"></ion-input>
+        </ion-item> -->
+        <!--<ion-item>
+          <ion-label stacked>Paypal Email</ion-label>
+          <ion-input type="email" placeholder="Paypal Email" formControlName="paypal_email"></ion-input>
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('paypal_email').hasError('required')">
+              Paypal email required.
+            </div>
+            <div class="error-message" *ngIf="form.get('paypal_email').hasError('pattern')">
+             Please enter valid email.
+            </div>
+          </ng-container>
+        </div>-->
+        <ion-item>
+          <ion-label stacked>About yourself</ion-label>
+          <ion-textarea placeholder="About Yourself" formControlName="about" autocapitalize="off" ></ion-textarea>
+        </ion-item>
+        <!--<ion-item>
+          <ion-label>Loyalty</ion-label>
+          <ion-checkbox color="dark" checked="true"></ion-checkbox>
+        </ion-item>-->
+        
+        <ion-item>
+          <button ion-button block [disabled]="!editPrfForm.valid" (click)="updateProfileData(form.value)">Save Changes</button>
+        </ion-item>
+      
+      </form>
+    </ion-list>
+    <ion-list *ngSwitchCase="'cash'">
+        <form [formGroup]="shipform" #editShpForm="ngForm">
+          <ion-item class="person-area">
+        <ion-avatar item-start>
+            <img [src]="userDetails?.image_url" (click)="presentActionSheet()" alt="">
+        </ion-avatar>
+        <h2>{{userDetails?.first_name}} {{userDetails?.last_name}}</h2>
+        <p> <ion-icon name="map" class="icon-map"></ion-icon> {{userDetails?.city}}</p>
+        <p><ion-icon name="locate" class="chat-icon item-end" (click)="goloc()"></ion-icon></p>
+      </ion-item>
+            <ion-item>
+                <ion-label stacked>Type</ion-label>
+                <ion-input type="text" formControlName="save_as" placeholder="Address Type"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container >
+                  <!-- <div class="error-message" *ngIf="shipform.get('save_as').hasError('required')">
+                    Address Type required.
+                  </div> -->
+                  <div class="error-message" *ngIf="shipform.get('save_as').hasError('pattern')">
+                      Address Type must be character only.
+                  </div>
+                </ng-container>
+              </div>
+         <!-- <ion-item>
+              <ion-label stacked>Name</ion-label>
+              <ion-input type="text" formControlName="name" placeholder="Enter Your Name" ></ion-input>
+            </ion-item> -->
+            <!-- <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="shipform.get('name').hasError('required')">
+                  Name required.
+                </div>
+                <div class="error-message" *ngIf="shipform.get('name').hasError('pattern')">
+                    Name must be character only.
+                </div>
+              </ng-container>
+            </div> -->
+            
+            <!-- <ion-item>
+              <ion-label stacked>Mobile No</ion-label>
+              <ion-input type="text" placeholder="Mobile No" formControlName="phone"></ion-input>
+            </ion-item> -->
+            <!-- <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="shipform.get('phone').hasError('required')">
+                  Mobile No required.
+                </div>
+                <div class="error-message" *ngIf="shipform.get('phone').hasError('pattern')">
+                  Please enter a number like 12345678 and must be 10 digit.
+                </div>
+              </ng-container>
+            </div> -->
+            
+            <ion-item>
+              <ion-label stacked>Address</ion-label>
+              <ion-input type="text" formControlName="address" placeholder="Enter your address"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="shipform.get('address').hasError('required')">
+                  Address required.
+                </div>
+                <div class="error-message" *ngIf="shipform.get('address').hasError('pattern')">
+                    Address must be character only.
+                </div>
+              </ng-container>
+            </div>
+           
+            <ion-item>
+                <ion-label stacked>Zip Code</ion-label>
+                <ion-input type="text" formControlName="zip" placeholder="Enter your zipcode"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+                <ng-container >
+                  <div class="error-message" *ngIf="shipform.get('zip').hasError('required')">
+                      Zip Code required.
+                  </div>
+                </ng-container>
+            </div>
+            <ion-item>
+                <ion-label stacked>Nearest Landmark</ion-label>
+                <ion-input type="text" formControlName="landmark" placeholder="Enter your Landmark"></ion-input>
+            </ion-item>
+            <!-- <div class="validation-errors">
+                <ng-container >
+                  <div class="error-message" *ngIf="shipform.get('landmark').hasError('required')">
+                      Landmark required.
+                  </div>
+                </ng-container>
+            </div> -->
+            <ion-item>
+                <button ion-button block [disabled]="!editShpForm.valid" (click)="updateShippingData(shipform.value)">Save Changes</button>
+            </ion-item>
+        </form>
+      
+      </ion-list>
+    </div>
+    </ion-card>
+  
+  </ion-content>
+  

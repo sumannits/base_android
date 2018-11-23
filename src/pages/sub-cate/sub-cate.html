@@ -1,0 +1,123 @@
+<!--
+  Generated template for the SubCatePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+    <ion-item>
+      <ion-label floating>Delivery Location</ion-label>
+      <ion-input type="text"></ion-input>
+    </ion-item>
+
+
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToCart()">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-row>
+      <ion-col col-4>
+        <ion-buttons>
+          <button ion-button icon-only (click)="openCategories()" class="category-text">
+            <!-- <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon> -->
+            <img class="category-icon" src="assets/img/category-icon.png"> Categories
+          </button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col col-8 class="pl-0">
+        <ion-searchbar color="primary" placeholder="Search for product">
+        </ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-slides pager>
+
+      <ion-slide>
+        <div class="overlay"></div>
+        <img src="assets/img/sub-cate-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 class="mb-0">Fruit & Vegetables </h2>
+          <p>Fruit & Vegetables Basket, Fruits, Vegetables, Cut Free...</p>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+        <div class="overlay"></div>
+        <img src="assets/img/sub-cate-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 class="mb-0">Fruit & Vegetables </h2>
+          <p>Fruit & Vegetables Basket, Fruits, Vegetables, Cut Free...</p>
+        </div>
+
+      </ion-slide>
+
+      <ion-slide>
+        <div class="overlay"></div>
+        <img src="assets/img/sub-cate-bnr.png" alt="">
+        <div class="slide-text">
+          <h2 class="mb-0">Fruit & Vegetables </h2>
+          <p>Fruit & Vegetables Basket, Fruits, Vegetables, Cut Free...</p>
+        </div>
+
+
+      </ion-slide>
+
+    </ion-slides>
+
+    <ion-card>
+      <ion-list>
+        <div class="category">
+          <img src="assets/img/veg-busket.png" alt="">
+          <h3>Vegetables Basket</h3>
+        </div>
+        <div class="category">
+          <img src="assets/img/fruit.png" alt="">
+          <h3>Fruits</h3>
+        </div>
+        <div class="category">
+          <img src="assets/img/vegetables.png" alt="">
+          <h3>Vegetables</h3>
+        </div>
+        <div class="category">
+          <img src="assets/img/cut-fresh.png" alt="">
+          <h3>Cut Fresh & Hurbs</h3>
+        </div>
+        <div class="category">
+          <img src="assets/img/mangoes.png" alt="">
+          <h3>Mangoes</h3>
+        </div>
+        <div class="category">
+          <img src="assets/img/all-fruit.png" alt="">
+          <h3>All Fruit & Vegetables</h3>
+        </div>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-thumbnail item-start>
+            <img src="assets/img/bnr-car.png">
+          </ion-thumbnail>
+          <h1 class="free-deli">FREE DELIVERY!</h1>
+          <p class="on-order">On orders above $200</p>
+        </ion-item>
+      </ion-list>
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>

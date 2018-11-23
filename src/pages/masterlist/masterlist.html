@@ -1,0 +1,157 @@
+<!--
+  Generated template for the MasterlistPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon class="back-button-icon icon icon-md back-button-icon-md ion-md-arrow-back" role="img" ng-reflect-klass="back-button-icon"
+        ng-reflect-ng-class="back-button-icon-md" aria-label="arrow back" ng-reflect-name="md-arrow-back"></ion-icon>
+    </button>
+    <!--<button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>  -->
+    <ion-title>Master List</ion-title>
+    <ion-buttons end>
+      <!--<button ion-button icon-only (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>-->
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-item class="date-time">
+      <ion-datetime displayFormat="DD-MM-YYYY" placeholder="Select Date" [(ngModel)]="dateselect" (ngModelChange)="dateChanged()"></ion-datetime>
+    <!--<ion-input type="text" aria-placeholder="Monday" placeholder="Select Date"></ion-input>-->
+  </ion-item>
+</ion-header>
+
+
+<ion-content>
+  
+  <ion-list scrollx="true" class="top-button-area">
+    <div class="driver-list">
+        <h5>MASTER LIST</h5>
+        <p> <b>ORDERS:</b></p>
+
+          <div *ngFor="let catData of masterCatData"> 
+              <!--<p class="blue-txt1"><b>{{catData.cat_name}}</b></p>-->
+              <p *ngFor="let prdData of catData.product_name_arr">{{prdData.product_name}}</p>
+          </div>
+          <!--<p>Whole wheat</p>
+          <p>Whole wheat(special note)</p>
+          <p class="blue-txt">Bicycle (Created item/Special Note)</p>
+          <p>SODAS</p>
+          <p>pepsi (special note)</p>
+          <p>coca cola /HALF LITER</p>-->
+    </div>
+
+    <div class="time-list">
+      <h5>{{dateselect | date:'EEEE'}} 11AM - 2PM</h5>
+      <div *ngIf="orderAMData.length > 0">
+      <div class="time-list-area" *ngFor="let amList of orderAMData">
+        <div [className]="(i%2 == 0) ? 'time' : 'time wt-bg'" *ngFor="let sptStr of amList.split('| '); let i=index" [innerHTML]="sptStr">
+          <!--<p><span [innerHTML]="sptStr"> </span></p>-->
+        </div>
+        <!--<div class="time wt-bg">
+          <p>
+            <span>#2</span>
+            <span>2pm</span>
+          </p>
+        </div>
+        <div class="time">
+          <p>
+            <span>#3</span>
+            <span>2pm</span>
+          </p>
+        </div>-->
+      </div>
+      </div>
+
+      <!--<div class="time-list-area">
+        <div class="time">
+          <p> <span> #1 </span> <span>11am</span> </p>
+        </div>
+        <div class="time wt-bg">
+          <p> <span>#2</span> <span>2pm</span> </p>
+        </div>
+        <div class="time">
+          <p> <span>#3</span> <span>2pm</span> </p>
+        </div>
+      </div>
+
+      <div class="time-list-area">
+        <div class="time">
+          <p>1</p>
+        </div>
+        <div class="time wt-bg">
+          <p>1</p>
+        </div>
+        <div class="time">
+          <p>1</p>
+        </div>
+      </div>
+
+      <div class="time-list-area">
+        <div class="time">
+          <p>1</p>
+        </div>
+        <div class="time wt-bg">
+          <p>1</p>
+        </div>
+        <div class="time">
+          <p>1</p>
+        </div>
+      </div>-->
+
+      <!--<div class="time-list-area">
+        <div class="time blue-txt">
+          <p class="m-all">1</p>
+        </div>
+        <div class="time blue-txt">
+          <p class="m-all">1</p>
+        </div>
+        <div class="time blue-txt">
+          <p class="m-all">1</p>
+        </div>
+      </div>-->
+      
+      <!--<div class="time-list-area">
+        <div class="time blue-txt">
+          <p class="m-all">1</p>
+        </div>
+        <div class="time wt-bg">
+          <p>1</p>
+        </div>
+        <div class="time">
+          <p>1</p>
+        </div>
+      </div>-->
+      
+    </div>
+    <div class="time-list">
+        <h5>{{dateselect | date:'EEEE'}} 2PM - 5PM</h5>
+        
+        <div *ngIf="orderPMData.length > 0">
+            <div class="time-list-area" *ngFor="let amList of orderPMData">
+              <div [className]="(i%2 == 0) ? 'time' : 'time wt-bg'" *ngFor="let sptStr of amList.split('| '); let i=index" [innerHTML]="sptStr">
+                
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="price-list">
+      <h5>TOTAL</h5>
+      <p *ngFor="let ordTot of orderTotData">{{ordTot}}</p>
+      <!--<p>3</p>
+      <p>3</p>
+      <p>3</p>
+      <p class="blue-txt">3</p>
+      <p>3</p>
+      <p>3</p>
+      <p>3</p>-->
+    </div> 
+  </ion-list> 
+</ion-content>

@@ -1,0 +1,52 @@
+page-verification {
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+    .toolbar-title{ font-weight: 400;}
+    ion-icon{ color: #ffffff !important;  }
+    .header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+    .cart{position: relative;}
+    .cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+    .list > .item-block{ border-bottom: 1px solid #e2e2e2;}
+    .list > .item-block:first-child{ border-top: 0;}
+    .list > .item-block:last-child{ border-bottom: 0;}
+
+  
+
+    p{text-align: center; color: #212121 !important; line-height: 1.8rem !important; font-weight: 400; font-size: 1.4rem !important; padding: 0 0 16px; font-family: 'Open Sans', sans-serif; }
+    .text-input{  font-weight: 400; font-size: 1.4rem !important; text-align: center;}
+
+
+    .list > .item.btn-lt{ padding-left: 0;}
+    .list > .item.btn-lt .item-inner{ padding-right: 0;}
+    .list > .item.btn-lt .item-inner .input-wrapper .label{ margin-right: 0; }
+    .btn-lt .btn-area{ background-color: #0032a0 !important; height: 44px !important; font-family: 'American Typewriter'; font-weight: 600 !important; font-size: 1.6rem;}
+    .btn-lt p{ margin: 16px 0 0; padding-bottom: 0; color: #0032a0 !important; font-weight: 400 !important; }
+
+
+
+
+
+    .pl-0{ padding-left: 0;}
+    .pr-0{ padding-right: 0;}
+
+
+
+
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #a1a1a1 !important; font-family: 'Open Sans', sans-serif; font-weight: 400;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #a1a1a1 !important; font-family: 'Open Sans', sans-serif; font-weight: 400;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #a1a1a1 !important; font-family: 'Open Sans', sans-serif; font-weight: 400;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #a1a1a1 !important; font-family: 'Open Sans', sans-serif; font-weight: 400;
+}
+
+
+}

@@ -1,0 +1,18 @@
+page-locate-map {
+
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+    .toolbar-title{font-family: 'Open Sans', sans-serif; font-weight: 400;}
+    ion-icon{ color: #ffffff !important;  }
+    .header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+    .cart{position: relative;}
+    .cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+    ion-list img{position: relative !important;}
+    ion-item{position: absolute !important; z-index: 100 !important; top: 0 !important; background: none !important;}
+    .searchbar{ background: #ffffff;}
+    .list .item-block .item-inner{ border-bottom: 0;}
+
+
+
+}

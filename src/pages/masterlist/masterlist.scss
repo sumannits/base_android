@@ -1,0 +1,27 @@
+page-masterlist {
+    
+.toolbar-title{font-weight: 400; font-size: 1.6rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+.content{ background: #f7f7f7 !important;}
+.row-part{margin-left: 16px; margin-right: 16px;}
+.driver-list{ flex: none; background-color: #e9ecef; in-bottom: 0; }
+.driver-list h5{  font-weight: 400; color: #0032a0; margin: 0; padding: 1.2rem; background-color: #d7e1eb;}
+.driver-list p{ font-weight: 600; padding: 0 1.6rem; height: 31px; margin-bottom: 0; border-bottom: 1px solid #ffffff; }
+.time-list{ flex: none;   background-color: #dbdee1; border-left: 0.1rem solid #fff; border-right: 0.1rem solid #fff;}
+.time-list h5{ font-weight: 400; color: #0032a0; background-color: #cacdd1; margin: 0; padding: 1.2rem;}
+.time-list-area{width: auto;     border-bottom: 1px solid #fff; display: flex; align-items: center; justify-content: space-between; align-items: center; }
+.time{width: 90%; background-color: #d1d6dc; padding: 0 1.6rem;}
+.time p{ padding: 0; display: flex; align-items: center; justify-content: space-between;}
+.time p span{font-weight: 600;}
+.price-list{ flex: none;  background-color: #dce4eb;}
+.price-list h5{ font-weight: 400; color: #0032a0; background-color: #c1d1de; margin: 0; padding: 1.2rem;}
+.price-list p{font-weight: 600; padding: 0 1.6rem; height: 31px; margin-bottom: 0; border-bottom: 1px solid #ffffff;}
+
+.top-button-area { display: flex; overflow-x: scroll;  padding-bottom:0;  margin: 16px;}
+.blue-txt{background-color: #0032a0; padding: 1rem !important; height: 38px !important; margin: 0; color: #fff; border-bottom: 0 !important;}
+.wt-bg{background-color: #e2e5e9 !important;}
+.m-all{margin: 0;}
+.date-time{     background-color: #e9ecef;}
+.blue-txt1{ height: 45px !important;background-color: #0032a0;color: #fff;padding-top: 13px !important;margin-top: 0px;border-bottom: 1px solid #ffffff;}
+}

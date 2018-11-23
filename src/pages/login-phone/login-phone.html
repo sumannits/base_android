@@ -1,0 +1,75 @@
+<!--
+  Generated template for the LoginPhonePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Login With Phone</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card>
+    <ion-card-content>
+      <p>We will send an SMS with a confirmation code to this number</p>
+      <form [formGroup]="form" #loginForm="ngForm">
+      <ion-list>
+        <ion-item>
+            <ion-select style="max-width:100% !important; width:100% !important; padding-top:0; padding-bottom:0;"  placeholder="Country Region Code" [formControl]="isd">
+                <ion-option value="521">(+521) Mex</ion-option>
+                <ion-option value="001">(+001) Usa</ion-option>
+                <!--<ion-option value="+91">(+91) Ind</ion-option>-->
+              </ion-select>
+          <!-- <ion-input type="number" placeholder="Country Region Code"  [formControl]="isd" required></ion-input> -->
+        </ion-item>
+        <div class="validation-errors">
+          <ng-container >
+            <div class="error-message" *ngIf="form.get('isd').hasError('required')">
+              Country Region Code required.
+            </div>
+            <div class="error-message" *ngIf="form.get('isd').hasError('pattern')">
+              Please enter a number like 521 and  less than 3 digit.
+            </div>
+            <div class="error-message" *ngIf="form.get('isd').hasError('maxlength')">
+              Please enter a number like 521 and  less than 3 digit.
+            </div>
+          </ng-container>
+        </div>
+        <ion-item>
+          <ion-input type="number" placeholder="Phone No" [formControl]="phone" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('phone').hasError('required')">
+            Phone No required.
+          </div>
+          <div class="error-message" *ngIf="form.get('phone').hasError('pattern')">
+            Please enter a number like 12345678 and must be 10 digit.
+          </div>
+        </ng-container>
+      </div>
+        <ion-item class="btn-lt">
+          <button class="btn-area"  [disabled]="(!loginForm.valid)" (click)="doPhoneLogin(form.value)" ion-button round block>Login</button>
+        </ion-item>
+        
+      </ion-list>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,73 @@
+<!--
+  Generated template for the RiderPackedorderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+  Generated template for the RiderComorderPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar no-border-bottom>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>    
+          <ion-title>Packed Order</ion-title>
+              <!-- <ion-title>My Order</ion-title> -->
+              <ion-buttons end>
+                <!--<button ion-button icon-only color="royal">
+                  <ion-icon name="search"></ion-icon>
+                </button>-->
+                <!-- <button ion-button icon-only color="royal">
+                  <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+                </button>
+                <div class="cart-item">2</div> -->
+              </ion-buttons>
+          
+      </ion-navbar>
+ 
+</ion-header>
+
+
+<ion-content>
+  <ion-card *ngFor="let order of orderdetail">
+    <ion-item (click)="goToDetails(order.id)">
+      <ion-thumbnail item-start >
+          <img src="{{order.image_url}}"  alt=""/>
+        <!-- <img src="assets/img/home-pic-a.png" alt=""> -->
+      </ion-thumbnail>
+      <div class="top-area">
+       
+          <h3 class="d-flex">#{{order.order_id}}</h3>
+          <p>{{order.order_date| date:'dd-MM-yyyy'}}
+            <span *ngIf="order.order_status == 'U'" class="status"> Processing </span>
+            <span *ngIf="order.order_status == 'P'" class="status"> Out for Delivery </span>
+            <span *ngIf="order.order_status == 'D'" class="status"> Delivered </span>
+            <span *ngIf="order.order_status == 'C'" class="status"> Complete </span>
+          </p>
+      </div>
+      
+      <ion-row class="top-brdr">
+        <ion-col col-6 text-center class="pl-0 p-b">
+          <h4 class="font-13">Quantity</h4>
+          <p text-center>{{order.total_quantity}}</p>
+        </ion-col>
+        <ion-col col-6 text-center class="pr-0 p-b">
+          <h4 class="font-13">Total</h4>
+          <p text-center>MXN{{(order.total_amount)}}</p>
+        </ion-col>
+      </ion-row>
+      
+    </ion-item>
+  </ion-card>
+  <ion-card *ngIf="orderdetail?.length == 0">
+      <ion-item>
+          <ion-row><h4> No order found</h4></ion-row>
+      </ion-item>
+  </ion-card>
+  
+</ion-content>
+

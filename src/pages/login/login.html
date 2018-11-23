@@ -1,0 +1,57 @@
+<ion-content>
+    <div class="logo">
+      <img src="./assets/img/login-logo.png" alt="Ionic logo">
+      <p>Anything on the steps of your door</p>
+    </div>
+    <form [formGroup]="form" #loginForm="ngForm">
+      <ion-list padding>
+        <ion-item>
+          <ion-label><ion-icon ios="ios-contact-outline" md="md-contact"></ion-icon></ion-label>
+          <ion-input type="email" placeholder="Email" [formControl]="email" autocapitalize="off"></ion-input>
+        </ion-item>
+        
+        <ion-item>
+          <ion-label>
+            <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+          </ion-label>
+          <ion-input type="password" placeholder="Password" [formControl]="password" autocapitalize="off"></ion-input>
+        </ion-item>
+        
+      </ion-list>
+  
+      <ion-row responsive-sm>
+        <ion-col text-center>
+          <button ion-button [disabled]="!loginForm.valid" (click)="doLogin(form.value)" round>SIGN IN</button>
+        </ion-col>
+        <!-- <ion-col>
+          <button ion-button (click)="onSignup()" color="light" block>Signup</button>
+        </ion-col> -->
+      </ion-row>
+    </form>
+      <p text-center (click)="forgotPassword()">Forgot your password?</p>
+  
+      <div padding> <h3 text-center class="or">OR</h3>  </div>
+  
+      <ion-row responsive-sm justify-content-center padding >
+        <ion-col col-1>
+          <div text-center (click)="facebookSignIn()">
+            <img class="social-icon" src="assets/img/fb-icon.png" alt="">
+          </div>				
+        </ion-col>
+        <!--<ion-col col-2>
+          <div text-center>
+            <img class="social-icon" src="assets/img/google-icon.png" alt="">
+          </div>				
+        </ion-col>-->
+      </ion-row> 
+  
+    <ion-row responsive-sm>
+      <ion-col text-center>
+        <button ion-button color="dark" class="dark" round (click)="gotoSignupPage()">Join now</button>
+      </ion-col>
+      <!-- <ion-col>
+            <button ion-button (click)="onSignup()" color="light" block>Signup</button>
+          </ion-col> -->
+    </ion-row>    
+  </ion-content> 
+

@@ -1,0 +1,19 @@
+page-notification {
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.toolbar-title{ font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+.item{ padding-left: 0;}
+.item [item-end]{ margin: 0; padding: 0;}
+
+
+.list > .item-block:first-child{ border-top: 0;}
+.button-inner{ color: #999999; text-transform: initial !important;}
+.item h2{ font-size: 1.5rem; font-family: 'American Typewriter';  font-weight: 600 !important;}
+}

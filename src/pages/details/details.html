@@ -1,0 +1,128 @@
+<!--
+  Generated template for the DetailsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>{{prdDetails?.name}}</ion-title>
+    <ion-buttons end>
+      <!--<button ion-button icon-only (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>-->
+      <button ion-button icon-only (click)="goToCart()" *ngIf="myCartCnt > 0">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+      <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-card class="card card-ios">
+    <img [src]="prdDetails?.image_url">
+    <ion-grid class="grid-brdr">
+      <ion-row>
+        <ion-col col-8>
+            <!-- <span *ngIf="prdDetails?.max_price > 0">${{prdDetails?.max_price}}</span> -->
+          <div class="item-lt">
+            <h4>{{prdDetails?.name}}</h4>
+            <h4>MXN {{prdDetails?.min_price}} /{{prdDetails?.prd_unit}} {{prdDetails?.unit_type}}  </h4>
+          </div>
+          
+        </ion-col>
+        <ion-col col-4>
+          <div class="item-rt">
+            <div class="qty">
+              <span class="qty-span" (click)="decreseQtyCart(prdDetails)">
+                <ion-icon name="remove"></ion-icon>
+              </span>
+              <span *ngIf="prdDetails?.prd_qty_add">{{prdDetails?.prd_qty_add}}</span>
+              <span *ngIf="!prdDetails?.prd_qty_add">1</span>
+              <span class="qty-span" (click)="increseQtyCart(prdDetails)">
+                <ion-icon name="add-circle"></ion-icon>
+              </span>
+            </div>
+
+            
+             <button ion-button block (click)="addToCart(prdDetails?.id)">Add 
+               <!-- <ion-icon name="add"></ion-icon>  -->
+              </button> 
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-grid class="grid-brdr">
+      <!--<ion-row>
+        <ion-col col-12>
+          <div class="item-lt">
+            <h4>Unit</h4>
+            <button ion-button outline class="unit-btn">200 gm + 200 gm +200gm</button>
+          </div>
+    
+        </ion-col>
+
+      </ion-row>-->
+    </ion-grid>
+
+   
+  </ion-card>
+  <ion-card class="card card-ios">
+  
+    <ion-card-content class="card-content card-content-ios">
+      <ion-card-title class="card-title card-title-ios">
+        <h3 class="features" *ngIf="prdDetails?.is_featured == '1'">Features </h3> 
+        <h2 class="description">Description</h2> 
+      </ion-card-title>
+      <p>
+        {{prdDetails?.description}}
+      </p>
+      <div *ngIf="prdDetails?.product_summary !=''" [innerHTML]="prdDetails?.product_summary"></div>
+      <div *ngIf="prdDetails?.additional_information !=''" [innerHTML]="prdDetails?.additional_information"></div>
+    </ion-card-content>
+  
+    <ion-item class="item item-block item-ios">
+      <ion-icon item-start="" name="musical-notes" role="img" style="color: #d03e84" class="icon icon-ios ion-ios-musical-notes item-icon"
+        aria-label="musical notes"></ion-icon>
+      <div class="item-inner">
+        <div class="input-wrapper">
+          <!---->
+          <ion-label class="label label-ios">
+  
+            Albums
+  
+          </ion-label>
+        </div>
+        <ion-badge item-end="" class="badge badge-ios">9</ion-badge>
+        <!---->
+      </div>
+      <div class="button-effect"></div>
+    </ion-item>
+  
+    <ion-item class="item item-block item-ios">
+      <ion-icon item-start="" name="logo-twitter" role="img" style="color: #55acee" class="icon icon-ios ion-logo-twitter item-icon"
+        aria-label="logo twitter"></ion-icon>
+      <div class="item-inner">
+        <div class="input-wrapper">
+          <!---->
+          <ion-label class="label label-ios">
+  
+            Followers
+  
+          </ion-label>
+        </div>
+        <ion-badge item-end="" class="badge badge-ios">260k</ion-badge>
+        <!---->
+      </div>
+      <div class="button-effect"></div>
+    </ion-item>
+  
+  </ion-card>
+</ion-content>

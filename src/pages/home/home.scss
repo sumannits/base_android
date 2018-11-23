@@ -1,0 +1,90 @@
+page-home {
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.bar-button-default{ color: #ffffff;}
+ion-header ion-navbar .item{ background-color: transparent; padding-left: 0;}
+.item.item-block .item-inner{ border-bottom: 0; }
+
+ion-header ion-navbar .item input{ color: #ffffff; font-family: 'American Typewriter'; font-weight: 500; font-size: 1.5rem; }
+ion-header ion-navbar .item ion-label{ color: #ffffff !important; margin-top: 0; font-family: 'American Typewriter'; font-weight: 400; font-size: 1.4rem; }
+
+.toolbar ion-title{ padding: 0 50px 1px 50px;}
+
+
+.item ion-avatar img{ width: 60px; height: 60px; margin-left: 1rem;}
+.item ion-avatar{min-width:60px; min-height: 60px;}
+
+.item.item-input.item-input-has-focus .item-inner, .item.item-input.input-has-focus .item-inner{ border-bottom: 0; box-shadow: none; }
+
+.item-label-floating .text-input{ margin-top: 0;}
+.category-icon{ width: 17px; height: 17px; margin-right: 3px;}
+.category-text{ font-family: 'American Typewriter'; font-weight: 400; font-size: 1.3rem;}
+.category-text .button-inner{ text-transform: uppercase; }
+
+.toolbar-title{color: #ffffff; text-align: left; padding-top: 5px;}
+.toolbar .searchbar{background: #ffffff; padding: 0; min-height: auto; border-radius: 3px; }
+.searchbar .searchbar-input{ line-height: inherit;  text-overflow: normal; white-space: normal; word-wrap: break-all; padding-right: 0;  font-weight: 400; font-size: 1.3rem;}
+.searchbar .searchbar-search-icon{ top: 7px;}
+
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+.cashback-area{ width: auto; background-color: #0032a0; padding: 10px; }
+.cashback-area h1{ color: #ffffff; font-weight: 600; font-family: 'American Typewriter';}
+.cashback-area p{ color: #ffffff; font-weight: 300; font-family: 'American Typewriter'; text-align: center; font-size: 1.4rem;}
+.cashback-area .item-inner{padding-right:0 !important;}
+.cashback-area .item-inner .input-wrapper .label{ margin-right: 0;}
+
+.order-now{ box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); background: #ffffff; font-weight: 400; color: #0032a0; width: 40%; font-size: 1.3rem; font-weight: 500;  position: absolute; z-index: 100; bottom: 0; top:84px; border-radius: 3px; line-height: 2.5rem; margin: 0 auto; left: 0; right: 0; height: 24px; text-align: center;  }
+
+.sub-head-text{ color: #cbcbcb; font-weight: 300; font-size: 1.3rem; margin-bottom: 0; margin-top: 0; }
+
+ion-content{position: relative;}
+
+ion-slides{ position: relative;}
+ion-slides .slide-text{ position: absolute; z-index: 100; top: 0; left: 0; right: 0; width: 74%; margin: 0 auto; text-align: center; }
+ion-slides .slide-text h2:first-child{ padding-top: 1.1rem; font-size: 2.4rem;}
+ion-slides .slide-text h2{font-weight: 600; margin-bottom: 0; font-size: 2rem; color: #000000; font-family: 'American Typewriter';}
+.bnr-car{width: 42px; height: auto;}
+ion-slides p{position: absolute; z-index: 100; bottom: 22px;line-height:1.1; left: 0; right: 0; color: #000000; width: 50%; margin: 0 auto;  font-size: 1.5rem; font-weight: 400;}
+.swiper-pagination-bullet-active{ background: #0032a0;}
+
+ion-card-content ion-item h3{ text-overflow: normal; white-space: normal; word-wrap: break-all; font-family: 'American Typewriter'; font-weight: 600 !important; color: #1e1e1e !important;}
+ion-card-content ion-item p{text-overflow: normal; white-space: normal; word-wrap: break-all; font-family: 'American Typewriter'; font-weight: 400 !important; color: #454545 !important; font-size: 1.2rem !important;}
+.item [item-end]{ margin-right: 0 !important; color: #6b6b6b; width: 75px;} 
+.item [item-end] .button-inner .icon{  font-size: 2.6rem; }
+
+
+.shop-cate{ font-weight: 700; font-size: 1.6rem; color: #1e1e1e; text-align: center; font-family: 'American Typewriter'; }
+.button-clear{ margin-bottom: 0; margin-top: 0; height: 7.5rem;}
+
+
+
+
+.baby-txt{ font-size: 1.6rem; color: #0032a0; margin-bottom: 0; margin-left: 10px; font-family: 'American Typewriter'; display: flex; align-items: center; }
+.top-cate-area{ padding-left: 5px;}
+.top-cate-area .item-inner{ padding-right: 5px;}
+.top-cate-area .label { display: -webkit-box; display: -webkit-flex; display: -ms-flexbox; display: flex; overflow-x: scroll;  padding-bottom:0; margin-bottom: 10px; margin-right: 0; margin-top: 5px;}
+.top-cate-area .top-cate{ width: 150px;  border: 1px solid #dbdbdb; margin-right: 8px; position: relative;}
+.top-cate-area .top-cate img{ width: auto; height: 90px;}
+.top-cate-area .top-cate h2{text-align: center; color: #1e1e1e; font-weight: bold; font-family: 'American Typewriter';  padding: 5px; font-size: 1.2rem; overflow: hidden; text-overflow: ellipsis;}
+.top-cate-area .top-cate p{ text-align: center; color: #1e1e1e; font-weight: 500;}
+
+
+.top-cate-area button{  border: 1px solid #0032a0; color: #ffffff; height: auto !important;  background: #0032a0; padding: 6px 20px !important; font-family: 'American Typewriter'; font-weight: bold; }
+.top-cate-area .top-cate{min-width: 150px;} 
+ 
+.qty{ background-color: #e9ecef; border: 1px solid #d9d9d9;  border-radius: 3px; margin-top: 0.4rem;  display: flex; align-items: center;justify-content: space-between;}
+.qty-span{ background-color: #e0e0e0; padding: 4px !important; }
+.qty-span ion-icon{ font-size: 1.8rem; color: #4e555c;}
+
+.time-slot{font-size: 1.4rem; font-weight: 400; float: right; color: #7398f7; padding-right: 20px;}
+
+
+.pt-0{ padding-top: 0;}
+.pb-0{ padding-bottom: 0;}
+.pl-0{padding-left: 0;}
+.pr-0{padding-right: 0;}
+.mt-0{ margin-top: 0;}
+.mb-0{ margin-bottom: 0;}
+}

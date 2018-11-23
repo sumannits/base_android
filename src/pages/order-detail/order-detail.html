@@ -1,0 +1,374 @@
+<!--
+  Generated template for the OrderDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Order Details</ion-title>
+        <ion-buttons end>
+          <!--<button ion-button icon-only (click)="goToSearch()">
+            <ion-icon name="search"></ion-icon>
+          </button>-->
+          <!-- <button ion-button icon-only (click)="goToCart()" *ngIf="myCartCnt > 0">
+            <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+          </button>
+          <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div> -->
+        </ion-buttons>
+      </ion-navbar>
+</ion-header>
+
+<ion-content >
+
+  <ion-card *ngFor="let order of ordershow">
+    <ion-item style="padding-top:16px;">
+      <ion-row>
+        <ion-col col-4>
+           <h3> Order Id :</h3> <button ion-button class="right-btn"   *ngIf="order.order_status == 'P' && myAddressLat!='' && myAddressLong!=''" (click)="track()">Track</button>
+          <button ion-button class="right-btn" *ngIf="order.order_status == 'D'" (click)="endtrack()">Complete</button>
+        </ion-col>
+        <ion-col col-8>
+          <p>#{{order.order_id}}</p>          
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button style="background-color: #0032a0; height:4.4rem; font-size: 1.7rem;"  class="right-btn" *ngIf="order.order_status == 'C' && buttonchange == 1" block (click)="gotoRate()"> <ion-icon name="star" style="font-size:1.7rem; margin-right: 0.7rem;" ></ion-icon>  Rate & Review</button>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    
+
+    <!-- <ion-item>
+      <ion-row>
+        <ion-col col-6>
+          <h3> Restuarant Name :</h3>
+        </ion-col>
+        <ion-col col-6>
+          <p>Zing</p>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+
+    <ion-item>
+      <ion-row>
+        <ion-col col-3>
+          <h3> Name :</h3>
+        </ion-col>
+        <ion-col col-9>
+          <p>{{order.first_name}} {{order.last_name}}</p>
+        </ion-col>
+      </ion-row>
+    </ion-item> -->
+    <ion-item>
+      <ion-row>
+        <ion-col col-6>
+          <h3> Delivery Address :</h3>
+        </ion-col>
+        <ion-col col-6><p>{{destination}}</p>
+          <p>{{mobno}}</p>
+          <p>{{shipmentdetails}},{{landmark}},{{shipmentzip}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col col-6>
+          <h3> Order Status :</h3>
+        </ion-col>
+        <ion-col col-6>
+          <p class="p-text align-right-p" *ngIf="order.order_status == 'U'">
+            SUBMITTED  
+          </p>
+          <!--<p class="p-text align-right-p" *ngIf="order.order_status == 'P'">
+            Processing 
+          </p>-->
+          <p class="p-text align-right-p" *ngIf="order.order_status == 'P'">
+            PACKED
+          </p>
+          <p class="p-text align-right-p" *ngIf="order.order_status == 'C'">
+            DELIVERED
+          </p>
+        </ion-col>
+      </ion-row>
+
+    </ion-item>
+    <ion-item *ngIf="getresult.delivery_agent?.length > 0">
+        <ion-row *ngFor="let deliver of getresult.delivery_agent">
+          <ion-col col-6>
+            <h3> Delivery Agent Name</h3>
+          </ion-col>
+          <ion-col col-6><p>{{deliver.first_name}} {{deliver.last_name}}</p>
+        
+          </ion-col>
+        </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-4>
+          <h3> Payment:</h3>
+        </ion-col>
+        <ion-col col-8 *ngIf="order.payment_status!=2">
+          <p>CARD</p>
+        </ion-col>
+        <ion-col col-8 *ngIf="order.payment_status==2">
+            <p>CASH</p>
+          </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row>
+        <ion-col col-4>
+          <h3> Payment Status:</h3>
+        </ion-col>
+        <ion-col col-8 *ngIf="order.payment_status!=2">
+          <p>PAID</p>
+        </ion-col>
+        <ion-col col-8 *ngIf="order.payment_status==2">
+            <p>UNPAID</p>
+          </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item class="order-det">
+      <ion-row>
+        <ion-col col-4>
+          <h3> Order Date :</h3>
+        </ion-col>
+        <ion-col col-8>
+          <p>{{order.order_date | date:'dd MMM, yyyy'}}</p>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-4>
+            <h3> Delivery Date :</h3>
+          </ion-col>
+          <ion-col col-8>
+            <p>{{deliverydate | date:'dd MMM, yyyy'}} {{((deliverydate | date:'H') == '12')?'11am - 2pm':'2pm - 5pm'}}</p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col col-12>
+            <h2>Order Details :</h2>
+          </ion-col>
+          <!-- <ion-col col-8>
+            <p>{{deliverydate| date:'dd MMM, yyyy'}}</p>
+          </ion-col> -->
+        </ion-row>
+    </ion-item>  
+    <!-- <ion-item class="pl-0" *ngIf="buttonchange=2">
+      <p item-start>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+        <ion-icon name="star"></ion-icon>
+      </p>
+    
+      <p text-uppercase item-end>Write A Review</p>
+    
+    </ion-item> -->
+    <ion-card class="card-part" *ngFor="let orderlist of getresult.order_sub_details">
+        <ion-item>
+          <ion-thumbnail item-start>
+              <img src="{{orderlist.image_url}}"  alt=""/>
+          </ion-thumbnail>   
+          <h3 class="d-flex">{{orderlist.product_name}}
+             
+            <!-- <button class="close-btn" ion-button>
+              <ion-icon name="close"></ion-icon>
+            </button> -->
+            <!-- <button class="close-btn" ion-button (click)="gotoChatDet(orderlist.id)">
+                chat
+              </button> -->
+              
+          </h3>
+         
+            <!-- <button class="close-btn" ion-button (click)="openstatusModal()">
+              Status
+            </button> 
+          <p>{{orderlist.order_date|  date:'dd-MM-yyyy'}}</p>-->
+          <p class="sp_note" *ngIf="orderlist.spacial_note != null"><span>Special Note:</span> {{orderlist.spacial_note}}</p>
+          
+          <ion-row class="top-brdr">
+            <ion-col col-6 class="p-b">
+              <h4 class="font-13" text-center>Quantity</h4>
+              <p text-center>{{orderlist.quantity}}</p>
+            </ion-col>
+            <ion-col col-6  class="p-b">
+              <h4 class="font-13" text-center>Price</h4>
+              <p text-center>MXN {{orderlist.price}}/{{orderlist.prd_unit}} {{orderlist.unit_type}}</p>
+            </ion-col>
+            
+           
+          </ion-row>
+
+          <ion-icon *ngIf="orderlist.shop_id > 0" name="chatbubbles" class="chat-icon" item-end (click)="gotoChatDet(orderlist.id)"></ion-icon>
+        </ion-item>
+      </ion-card>
+      <ion-item>
+      
+      
+      <!-- <ion-row>
+        <ion-col col-2>
+          <h3 style="margin-bottom:10px">#</h3>
+          <p>1</p>
+         
+        </ion-col>
+        <ion-col col-5>
+          <h3 style="margin-bottom:10px">Product Name</h3>
+          <p>{{order.product_name}}</p>
+        
+        </ion-col>
+        <ion-col col-2>
+          <h3 style="margin-bottom:10px">Qty</h3>
+          <p>{{order.quantity}}</p>
+        
+        </ion-col>
+        <ion-col col-3>
+          <h3 style="margin-bottom:10px">Price</h3>
+          <p>${{order.price}}</p>
+        
+        </ion-col>
+        <ion-col col-3>
+            <h3 style="margin-bottom:10px">Total</h3>
+            <p>${{subtotal}}</p>
+            
+          </ion-col>
+      </ion-row>
+       -->
+      <div class="sub-total">
+        <span class="sub-total-text">Sub Total</span>
+        <span class="price">MXN {{(order.total_amount)-(sevtax)}}</span>
+      </div>
+      <div class="sub-total">
+          <span class="sub-total-text">Shipping Charge</span>
+          <span class="price">MXN {{sevtax}}</span>
+        </div>
+      
+      <div class="sub-total">
+        <span class="sub-total-text">Grand Total</span>
+        <span class="price">MXN {{order.total_amount}}</span>
+      </div>
+      <div class="sub-total" *ngIf="order.payment_status==2">
+        <span class="sub-total-text">Due Amount</span>
+        <span class="price">MXN {{order.total_amount}}</span>
+      </div>
+      <div class="sub-total" *ngIf="order.due_amt > 0 && order.payment_status!=2">
+        <span class="sub-total-text">Due Amount</span>
+        <span class="price">MXN {{order.due_amt}}</span>
+      </div>
+    </ion-item>
+    
+
+
+  </ion-card>
+
+</ion-content>
+
+
+
+
+
+
+
+<!-- <div class="card">
+  <div class="item item-text-wrap">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-25 no-p-t no-p-btm">
+        <h3> Order Id :</h3>
+      </div>
+      <div class="col col-75 no-p-t no-p-btm">
+        <p>#524879</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-50 no-p-t no-p-btm">
+        <h3> Restuarant Name :</h3>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <p>Zing</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-25 no-p-t no-p-btm">
+        <h3> Name :</h3>
+      </div>
+      <div class="col col-75 no-p-t no-p-btm">
+        <p>Ishani Dutta</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-50 no-p-t no-p-btm">
+        <h3> Delivery Address :</h3>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <p>D-6/8, Armheart St. Kolkata</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-50 no-p-t no-p-btm">
+        <h3> Payment</h3>
+        <p>COD</p>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <h3>Order Date</h3>
+        <p>Aug 23, 2017</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap">
+    <h2>Order Details :</h2>
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-10 no-p-t no-p-btm">
+        <h3> # </h3>
+        <p>1</p>
+        <p>1</p>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <h3> Product Name </h3>
+        <p>Pizza</p>
+        <p>Pizza</p>
+      </div>
+      <div class="col col-20 no-p-t no-p-btm">
+        <h3> Qty </h3>
+        <p>1</p>
+        <p>1</p>
+      </div>
+      <div class="col col-20 no-p-t no-p-btm">
+        <h3> Price </h3>
+        <p>$23.40</p>
+        <p>$23.40</p>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap no-p-btm">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-50 no-p-t no-p-btm">
+        <p style="color: #646464; font-weight: 500; font-size: 1.2rem;"> Sub Total</p>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <h2 style="color: #333333; font-weight: 600; font-size: 1.5rem; text-align: right;">$46.80</h2>
+      </div>
+    </div>
+  </div>
+  <div class="item item-text-wrap no-p-btm">
+    <div class="row no-p-t no-p-btm no-p-lt no-p-rt">
+      <div class="col col-50 no-p-t no-p-btm">
+        <p style="color: #646464; font-weight: 500; font-size: 1.2rem;"> Grand Total</p>
+      </div>
+      <div class="col col-50 no-p-t no-p-btm">
+        <h2 style="color: #333333; font-weight: 600; font-size: 1.5rem; text-align: right;">$46.80</h2>
+      </div>
+    </div>
+  </div>
+</div> -->

@@ -1,0 +1,202 @@
+<!--
+  Generated template for the CheckoutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start menuToggle>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal" (click)="goToSearch()">
+        <ion-icon name="search"></ion-icon>
+      </button>
+      <button ion-button icon-only color="royal" (click)="goToCart()">
+        <ion-icon ios="ios-cart-outline" md="md-cart"></ion-icon>
+      </button>
+      <div class="cart-item" *ngIf="myCartCnt > 0">{{myCartCnt}}</div>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+
+  <ion-list *ngIf="myAddressList?.length > 0 && !isEditFrm">
+    <h5 class="deliver">Delivering In</h5>
+    <ion-item class="heading-part" *ngFor="let addData of myAddressList">
+      <h2>{{addData.save_as}}
+        <button ion-button class="change-btn" clear outline (click)="deliveringEditdata(addData)">
+          <ion-icon class="more-icon" name="create"></ion-icon> Change
+        </button>
+      </h2>
+      <h5>{{addData.name}}</h5>
+      <p>{{(addData.address!='')?addData.address+' ,':''}} {{addData.zip}},</p>
+      <p>{{addData.phone}}</p>
+      <p>{{addData.landmark}}</p>
+    </ion-item>
+  </ion-list>
+    <!-- <ion-item style="margin:0 !important; padding-left:0 !important;">
+      <img src="assets/img/checkout-body.png" alt="">
+    </ion-item> -->
+    <!-- <form [formGroup]="form" #editShpForm="ngForm">
+    <ion-item style="margin:0 !important; padding-left:0 !important;">
+      <ion-label stacked>Date</ion-label>
+       <ion-datetime displayFormat="DD-MM-YYYY hh:mm A"  formControlName="date"></ion-datetime>
+    </ion-item>
+</form> -->
+
+<!-- <ion-icon class="more-icon"></ion-icon>  -->
+<h6 class="sel-tx" >Select Date & Time Slot</h6>
+
+<ion-row>
+  <ion-col col-6>
+    <button ion-button class="change-btn date-btn" clear outline>
+      <ion-datetime displayFormat="DD-MM-YYYY" placeholder="Date" [min]="minDate" [(ngModel)]="dateselect" (ngModelChange)="dateChanged()"></ion-datetime>
+    </button>
+  </ion-col>
+  <ion-col col-6>
+    <button ion-button class="change-btn" clear outline>
+    
+      <ion-label stacked class="segment-label">Time</ion-label>
+      <ion-select style="max-width:100% !important; width:100% !important; padding-top:0; padding-bottom:0;" placeholder="Time"
+        [(ngModel)]="dateselectto">
+          <!--<ion-option value="07:00"  [disabled]="time > 6">7am - 8am</ion-option>
+          <ion-option value="08:00"  [disabled]="time > 7">8am - 9am</ion-option>
+          <ion-option value="09:00"  [disabled]="time > 8">9am - 10am</ion-option>
+          <ion-option value="10:00"  [disabled]="time > 9">10am - 11am</ion-option>-->
+          <ion-option value="12:00"  [disabled]="time > 12">11am - 2pm</ion-option>
+          <ion-option value="15:00"  [disabled]="time > 15">2pm - 5pm</ion-option>
+          <!--<ion-option value="17:00" [disabled]="time > 16">5pm - 6pm</ion-option>
+          <ion-option value="18:00" [disabled]="time > 17">6pm - 7pm</ion-option>
+          <ion-option value="19:00" [disabled]="time > 18">7pm - 8pm</ion-option>
+          <ion-option value="20:00"  [disabled]="time > 19">8pm - 9pm</ion-option>
+          <ion-option value="21:00"  [disabled]="time > 20">9pm - 10pm</ion-option>-->
+      </ion-select>
+    </button>
+  </ion-col>
+</ion-row>
+    <!-- <ion-item style="margin:0 !important; padding-left:0 !important;">
+      <ion-label stacked>Date</ion-label>
+       <ion-datetime displayFormat="DD-MM-YYYY hh:mm A" [(ngModel)]="dateselect"></ion-datetime>
+    </ion-item> -->
+
+  <ion-list class="editFrm" *ngIf="myAddressList?.length == 0 || isEditFrm">
+      <h5 class="deliver">Delivering In</h5>
+      <form [formGroup]="form" #editShpForm="ngForm">
+          <ion-item>
+              <ion-label stacked>Type</ion-label>
+              <ion-input type="text" formControlName="save_as" placeholder="Address Type"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="form.get('save_as').hasError('required')">
+                  Address Type required.
+                </div>
+                <div class="error-message" *ngIf="form.get('save_as').hasError('pattern')">
+                    Address Type must be character only.
+                </div>
+              </ng-container>
+            </div>
+       <ion-item>
+            <ion-label stacked>Name</ion-label>
+            <ion-input type="text" formControlName="name" placeholder="Enter Your Name" ></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container >
+              <div class="error-message" *ngIf="form.get('name').hasError('required')">
+                Name required.
+              </div>
+              <div class="error-message" *ngIf="form.get('name').hasError('pattern')">
+                  Name must be character only.
+              </div>
+            </ng-container>
+          </div>
+          
+          <!--<ion-item>
+            <ion-label stacked>Email Id</ion-label>
+            <ion-input type="email" formControlName="email" placeholder="Email Id"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="form.get('email').hasError('required')">
+                  Email Id required.
+                </div>
+                <div class="error-message" *ngIf="form.get('email').hasError('pattern')">
+                    Please provide a valid email.
+                </div>
+              </ng-container>
+          </div>-->
+          <ion-item>
+            <ion-label stacked>Mobile No</ion-label>
+            <ion-input type="text" placeholder="Mobile No" formControlName="phone"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container >
+              <div class="error-message" *ngIf="form.get('phone').hasError('required')">
+                Mobile No required.
+              </div>
+              <div class="error-message" *ngIf="form.get('phone').hasError('pattern')">
+                Please enter a number like 12345678 and must be 10 digit.
+              </div>
+            </ng-container>
+          </div>
+          
+          <ion-item>
+            <ion-label stacked>Address</ion-label>
+            <ion-input type="text" formControlName="address" placeholder="Enter your address"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+            <ng-container >
+              <div class="error-message" *ngIf="form.get('address').hasError('required')">
+                Address required.
+              </div>
+              <div class="error-message" *ngIf="form.get('address').hasError('pattern')">
+                  Address must be character only.
+              </div>
+            </ng-container>
+          </div>
+         
+          <ion-item>
+              <ion-label stacked>Zip Code</ion-label>
+              <ion-input type="text" formControlName="zip" placeholder="Enter your zipcode"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="form.get('zip').hasError('required')">
+                    Zip Code required.
+                </div>
+              </ng-container>
+          </div>
+          <ion-item>
+              <ion-label stacked>Nearest Landmark</ion-label>
+              <ion-input type="text" formControlName="landmark" placeholder="Enter your Landmark"></ion-input>
+          </ion-item>
+          <div class="validation-errors">
+              <ng-container >
+                <div class="error-message" *ngIf="form.get('landmark').hasError('required')">
+                    Landmark required.
+                </div>
+              </ng-container>
+          </div>
+          <ion-item>
+              <button ion-button block [disabled]="!editShpForm.valid" (click)="updateShippingData(form.value)">Save Changes</button>
+          </ion-item>
+      </form>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="myAddressList.length > 0 && !isEditFrm && dateselect">
+  <ion-toolbar class="ftr-part">
+    <ion-item *ngFor="let addData of myAddressList" (click)="goToPayment(dateselect,dateselectto,addData.id)">
+      <button ion-button block style="background:none !important; font-size: 18px !important; font-weight: 400 !important; font-family: 'Open Sans', sans-serif !important; box-shadow:none !important; ">Proceed to Payment</button>
+    </ion-item>
+  </ion-toolbar>
+</ion-footer>
+
+

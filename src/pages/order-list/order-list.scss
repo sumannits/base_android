@@ -1,0 +1,37 @@
+page-order-list {
+
+// @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.toolbar-title{ font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+.content{background: #f7f7f7;}
+.item{padding-left: 8px;}
+.item ion-thumbnail[item-start]{ margin-right: 10px;}
+.item ion-thumbnail img{ width: 100px; height: auto !important;}
+ion-thumbnail{min-height: 56px !important;}
+ion-thumbnail img{border-radius: 3px !important;}
+.item-block{ align-items: flex-start;}
+.item .item-button{ padding: 0;}
+.item [item-end]{ margin-right: 0; margin-top: 0;}
+.close-btn{align-items: flex-start !important; background-color: #0032a0 !important; border-radius: 2px !important; height: auto !important; min-height: auto !important; padding: 0 5px !important; line-height: normal !important;}
+.button-inner ion-icon{ color: #ffffff; }
+h3{font-weight: 600 !important;}
+.item p{ font-size: 1.3rem; margin-bottom: 5px;}
+.label{ margin-bottom: 0; padding-bottom: 8px; margin-right: 0; margin-top: 8px !important; }
+.d-flex{ display: flex; align-items: center; justify-content: space-between;}
+.button{margin-top: 0 !important; margin-bottom: 0 !important;}
+
+.d-flex .button .button-inner ion-icon{ color: #0032a0 !important; font-size: 2.5rem;}
+
+.top-brdr{ border-top: 1px solid #e1e1e1;}
+.font-13{font-size: 1.4rem; font-weight: 400;}
+
+.p-b{ padding-bottom: 0;}
+.chat-icon{ color: #0032a0 !important; font-size: 2.2rem;}
+
+}

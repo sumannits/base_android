@@ -1,0 +1,29 @@
+page-save-card {
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800');
+
+.toolbar-title{font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1.5rem;}
+ion-icon{ color: #ffffff !important;  }
+.header .toolbar{ font-size: 1.6rem; font-weight: 400;}
+
+.cart{position: relative;}
+.cart-item{ position: absolute; width: 18px; height: 18px; border-radius: 50%; color: #ffffff; display: flex; justify-content: center; align-items: center; text-align: center; font-size: 1.2rem; background-color: #0032a0; z-index: 100; right: 0; top: 0;}
+
+.item{ padding: 0;}
+.item h2{ font-size: 1.5rem; color: #000000; display: flex; align-items: center; flex-wrap: wrap; }
+.item.item-block .item-inner{ padding-right: 0;}
+.item .item-button{ padding: 0;}
+.item [item-end]{ margin: 0; }
+.rt-logo{ width: 47px; margin-left: 5px;}
+.label{ margin-right: 0; }
+.item ion-avatar[item-start]{ margin-right: 12px; }
+ion-checkbox{ margin-right: 0 !important;}
+
+.item ion-avatar[item-start]{ text-align: center; }
+.item ion-avatar[item-start] ion-icon{ color: #212121 !important; font-size: 26px; }
+
+ion-textarea{ border:1px solid #dfdfdf; border-radius: 5px; }
+
+
+
+}

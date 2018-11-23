@@ -1,0 +1,181 @@
+<ion-content>
+  <div class="logo">
+    <img src="assets/img/login-logo.png" alt="Ionic logo">
+    <p>Anything on the steps of your door</p>
+  </div>
+  <form [formGroup]="form" #signupForm="ngForm">
+    <ion-list padding style="padding-bottom:0;">
+      <ion-item>
+        <ion-label>
+          <ion-icon ios="ios-contact-outline" md="md-contact"></ion-icon>
+        </ion-label>
+        <ion-input type="text" placeholder="First name" [formControl]="first_name" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('first_name').hasError('required')">
+            First name required.
+          </div>
+          <div class="error-message" *ngIf="form.get('first_name').hasError('pattern')">
+            Please enter first name character only.
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label>
+          <ion-icon ios="ios-contact-outline" md="md-contact"></ion-icon>
+        </ion-label>
+        <ion-input type="text" placeholder="Last name" [formControl]="last_name" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('last_name').hasError('required')">
+            Last name required.
+          </div>
+          <div class="error-message" *ngIf="form.get('last_name').hasError('pattern')">
+            Please enter last name character only.
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label>
+          <ion-icon ios="ios-mail-outline" md="md-mail"></ion-icon>
+        </ion-label>
+        <ion-input type="email" placeholder="Email" [formControl]="email" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('email').hasError('required')">
+            Email required.
+          </div>
+          <div class="error-message" *ngIf="form.get('email').hasError('email')">
+            Please enter a valid email.
+          </div>
+        </ng-container>
+      </div>
+      <ion-row>
+        <ion-col col-6>
+          <ion-item>    
+              <ion-label>
+                  <ion-icon name="call"></ion-icon>
+                </ion-label>          
+                <!-- <ion-input type="number" placeholder="Code"  [formControl]="isd" required></ion-input> -->
+                    <ion-select style="max-width:100% !important; width:100% !important; padding-top:0; padding-bottom:0;"  placeholder="Country Region Code" [formControl]="isd">
+                        <ion-option value="521">(+521) Mex</ion-option>
+                        <ion-option value="001">(+001) Usa</ion-option>
+                        <!--<ion-option value="+91">(+91) Ind</ion-option>-->
+                      </ion-select>
+                  <!-- <ion-input type="number" placeholder="Country Region Code"  [formControl]="isd" required></ion-input> -->
+               
+          </ion-item>
+        </ion-col>
+        <ion-col col-6>
+            <ion-item>
+                <ion-label> </ion-label>
+                <ion-input type="number" placeholder="Phone No" [formControl]="phone" autocapitalize="off"></ion-input>
+            </ion-item>
+        </ion-col>
+      </ion-row>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('isd').hasError('required')">
+            Country region code required.
+          </div>
+          <div class="error-message" *ngIf="form.get('isd').hasError('pattern')">
+            Please enter a number like 521 and  less than 3 digit.
+          </div>
+          <div class="error-message" *ngIf="form.get('phone').hasError('required')">
+            Phone no required.
+          </div>
+          <div class="error-message" *ngIf="form.get('phone').hasError('pattern')">
+            Please enter a valid phone number.
+          </div>
+        </ng-container>
+      </div>
+<!--      
+      <ion-item>
+        <ion-label>
+          <ion-icon name="call"></ion-icon>
+        </ion-label>
+        <ion-row>
+          <ion-col>
+            <ion-input type="number" placeholder="Phone No" [formControl]="phone" autocapitalize="off"></ion-input>
+          </ion-col>
+          <ion-col>
+            <ion-input type="number" placeholder="Phone No" [formControl]="phone" autocapitalize="off"></ion-input>
+          </ion-col>
+        </ion-row>
+        
+      </ion-item> -->
+     
+      <ion-item>
+        <ion-label>
+          <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Password" [formControl]="password" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('password').hasError('required')">
+            Password required.
+          </div>
+        </ng-container>
+      </div>
+      <ion-item>
+        <ion-label>
+          <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>
+        </ion-label>
+        <ion-input type="password" placeholder="Confirm Password" [formControl]="cpassword" autocapitalize="off"></ion-input>
+      </ion-item>
+      <div class="validation-errors">
+        <ng-container >
+          <div class="error-message" *ngIf="form.get('cpassword').hasError('required')">
+            Confirm password required.
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-row responsive-sm>
+      <ion-col text-center class="pt-0">
+        <ion-item class="brdr-none">
+          <ion-label class="remember-me">Remember Me </ion-label>
+          <ion-checkbox checked="true"></ion-checkbox>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-row responsive-sm>
+      <ion-col text-center>
+        <button ion-button [disabled]="(!signupForm.valid)" (click)="doSignup(form.value)" round>SIGN UP</button>
+      </ion-col>
+    </ion-row>
+  </form>
+  <p text-center (click)="forgotPassword()">Forgot your password?</p>
+
+  <div padding>
+    <h3 text-center class="or">OR</h3>
+  </div>
+
+  <ion-row responsive-sm justify-content-center>
+    <ion-col col-1>
+      <div text-center (click)="facebookSignIn()">
+        <img class="social-icon" src="assets/img/fb-icon.png" alt="">
+      </div>
+    </ion-col>
+    <!--<ion-col col-2>
+      <div text-center>
+        <img class="social-icon" src="assets/img/google-icon.png" alt="">
+      </div>
+    </ion-col>-->
+  </ion-row>
+
+  <ion-row responsive-sm>
+    <ion-col text-center>
+      <button ion-button color="dark" class="dark" round (click)="onLogin()">Login now</button>
+    </ion-col>
+    <!-- <ion-col>
+            <button ion-button (click)="onSignup()" color="light" block>Signup</button>
+          </ion-col> -->
+  </ion-row>
+</ion-content>
